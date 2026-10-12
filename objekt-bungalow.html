@@ -142,7 +142,24 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .back{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
 .back span{transition:width .45s cubic-bezier(.2,.7,.2,1)}
 .back:hover span{width:40px!important}
+.mbtn{display:none;width:44px;height:44px;margin-right:-10px;padding:0;background:none;border:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#E6E4E0;-webkit-tap-highlight-color:transparent}
+.mbtn span{display:block;width:24px;height:1px;background:currentColor;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.mbtn[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.mbtn[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.topbar nav{position:relative;z-index:2}
+.mmenu{display:none}
 @media (max-width:900px){
+ .navlinks{display:none!important}
+ .mbtn{display:flex}
+ .topbar nav .wrap{padding-top:14px!important;padding-bottom:14px!important}
+ .hlogo{height:17px!important}
+ .flogo{width:170px!important}
+ .mmenu{display:flex;position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;z-index:1;background:rgba(12,12,12,.97);flex-direction:column;padding-top:73px;box-sizing:border-box;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s;overflow-y:auto}
+ .mmenu.open{opacity:1;visibility:visible;transition:opacity .4s ease}
+ .mm{display:flex;align-items:baseline;gap:18px;padding:22px 0;border-bottom:1px solid #262626;font-size:13px;letter-spacing:.32em;text-transform:uppercase;font-weight:400;text-decoration:none;color:#F3F2EF}
+ .mm .mn{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:26px;letter-spacing:0;text-transform:none;color:#A3A09A;min-width:34px}
+ .mmenu.open .mm{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+ .mmenu.open .mm:nth-child(2){animation-delay:.05s}.mmenu.open .mm:nth-child(3){animation-delay:.1s}.mmenu.open .mm:nth-child(4){animation-delay:.15s}.mmenu.open .mm:nth-child(5){animation-delay:.2s}
  .navlinks .nl{display:none}
  .cols{flex-direction:column!important}
  .facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
@@ -160,7 +177,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div class="topbar">
 <nav aria-label="Hauptnavigation" class="nav">
 <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; padding-top: 22px; padding-bottom: 22px">
-<a href="index.html" aria-label="RENOVA – Startseite" style="display: block; line-height: 0"><img src="assets/logo/renova-wortmarke-negativ.svg" alt="RENOVA" style="display: block; height: 18px; width: auto"></a>
+<a href="index.html" aria-label="RENOVA – Startseite" style="display: block; line-height: 0"><img src="assets/logo/renova-wortmarke-negativ.svg" alt="RENOVA" class="hlogo" style="display: block; height: 18px; width: auto"></a>
 <div class="navlinks" style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400">
 <a class="nl" href="index.html#hausverwaltung">Hausverwaltung</a>
 <a class="nl" href="index.html#bautraeger">Bauträger</a>
@@ -168,8 +185,19 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <a class="nl" href="index.html#unternehmen">Unternehmen</a>
 <a href="#anfrage" style="border: 1px solid rgba(230,228,224,0.35); padding: 13px 20px 13px 23px">Kontakt</a>
 </div>
+<button class="mbtn" type="button" data-on="toggleMenu" aria-controls="mmenu" aria-expanded="false" aria-label="Menü"><span></span><span></span></button>
 </div>
 </nav>
+<div id="mmenu" class="mmenu">
+<div class="wrap" style="width: 100%; padding-top: 8px; padding-bottom: 40px">
+<a class="mm" href="index.html#hausverwaltung"><span class="mn">01</span>Hausverwaltung</a>
+<a class="mm" href="index.html#bautraeger"><span class="mn">02</span>Bauträger</a>
+<a class="mm" href="index.html#immobilien"><span class="mn">03</span>Immobilien</a>
+<a class="mm" href="index.html#unternehmen"><span class="mn">04</span>Unternehmen</a>
+<a class="mm" href="#anfrage"><span class="mn">05</span>Anfrage</a>
+<div style="margin-top: 36px; font-size: 13px; line-height: 2; color: #A3A09A"><a href="tel:+436648443054" style="color: #A3A09A; text-decoration: none">+43 664 8443054</a><br><a href="mailto:info@renova-alpenimmobilien.at" style="color: #A3A09A; text-decoration: none">info@renova-alpenimmobilien.at</a></div>
+</div>
+</div>
 </div>
 
 <!-- HERO -->
@@ -290,7 +318,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 
 <footer style="background: #0C0C0C; border-top: 1px solid #262626; padding: 60px 0 64px">
 <div class="wrap ftr" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px">
-<img src="assets/logo/renova-hauptlogo-negativ.svg" alt="RENOVA Alpenimmobilien Tirol GmbH" style="display: block; width: 260px; height: auto">
+<img src="assets/logo/renova-hauptlogo-negativ.svg" alt="RENOVA Alpenimmobilien Tirol GmbH" class="flogo" style="display: block; width: 260px; height: auto">
 <div style="display: flex; flex-wrap: wrap; gap: 56px; font-size: 13px; line-height: 1.9; color: #A3A09A">
 <address style="font-style: normal">Maria-Theresien-Straße 18<br>6020 Innsbruck</address>
 <div><a href="tel:+436648443054" style="color: #A3A09A; text-decoration: none">+43 664 8443054</a><br><a href="mailto:info@renova-alpenimmobilien.at" style="color: #A3A09A; text-decoration: none">info@renova-alpenimmobilien.at</a></div>
@@ -329,6 +357,15 @@ function setImg(img, src){
   if(location.hash && document.getElementById(location.hash.slice(1))){
     window.addEventListener('load', function(){ window.scrollTo(0,0); setTimeout(function(){ smoothTo(location.hash.slice(1)); }, 250); });
   }
+})();
+
+(function(){
+  var b = document.querySelector('.mbtn'), m = document.getElementById('mmenu'); if(!b || !m) return;
+  function set(o){ m.classList.toggle('open', o); b.setAttribute('aria-expanded', o ? 'true' : 'false'); b.setAttribute('aria-label', o ? 'Menü schließen' : 'Menü'); document.documentElement.style.overflow = o ? 'hidden' : ''; }
+  b.addEventListener('click', function(){ set(b.getAttribute('aria-expanded') !== 'true'); });
+  m.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && m.classList.contains('open')){ set(false); b.focus(); } });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 900) set(false); });
 })();
 
 (function(){
