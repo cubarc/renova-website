@@ -145,6 +145,19 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .mbtn[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
 .topbar nav{position:relative;z-index:2}
 .mmenu{display:none}
+.ddw{position:relative}
+.ddw .nl{display:inline-flex;align-items:center;gap:8px}
+.ddw .car{transition:transform .35s ease}
+.ddw:hover .car,.ddw:focus-within .car{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 23px);left:-24px;min-width:230px;padding:12px 0 14px;background:rgba(12,12,12,.95);border:1px solid rgba(230,228,224,.1);border-top:none;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease,visibility 0s .3s}
+.dd::before{content:"";position:absolute;left:0;right:0;top:-24px;height:24px}
+.ddw:hover .dd,.ddw:focus-within .dd{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s ease}
+.dd a{display:block;padding:11px 24px;font-size:10px;letter-spacing:.3em;color:#A3A09A}
+.dd a:hover,.dd a:focus-visible{color:#FFFFFF}
+.dd .ddall{color:#E6E4E0;border-bottom:1px solid #262626;margin-bottom:6px;padding-bottom:14px}
+.msub{display:flex;flex-direction:column;padding:0 0 16px 52px;border-bottom:1px solid #262626}
+.msub a{padding:9px 0;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#A3A09A;text-decoration:none}
+.mm.mm-p{border-bottom:none;padding-bottom:10px}
 @media (max-width:900px){
  .navlinks{display:none!important}
  .mbtn{display:flex}
@@ -176,9 +189,10 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; padding-top: 22px; padding-bottom: 22px">
 <a href="index.html" aria-label="RENOVA – Startseite" style="display: block; line-height: 0"><img src="assets/logo/renova-wortmarke-negativ.svg" alt="RENOVA" class="hlogo" style="display: block; height: 18px; width: auto"></a>
 <div class="navlinks" style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400">
-<a class="nl" href="index.html#hausverwaltung">Hausverwaltung</a>
+<div class="ddw"><a class="nl" href="index.html#immobilien">Immobilien<svg class="car" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 L5 7 L8.5 3.5" fill="none" stroke="currentColor" stroke-width="1"></path></svg></a>
+<div class="dd"><a class="ddall" href="index.html#immobilien">Alle Immobilien</a><a href="index.html#standort-oesterreich">Österreich</a><a href="index.html#standort-griechenland">Griechenland</a></div></div>
 <a class="nl" href="index.html#bautraeger">Bauträger</a>
-<a class="nl" href="index.html#immobilien">Immobilien</a>
+<a class="nl" href="index.html#hausverwaltung">Hausverwaltung</a>
 <a class="nl" href="index.html#unternehmen">Unternehmen</a>
 <a href="#anfrage" style="border: 1px solid rgba(230,228,224,0.35); padding: 13px 20px 13px 23px">Kontakt</a>
 </div>
@@ -187,9 +201,10 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </nav>
 <div id="mmenu" class="mmenu">
 <div class="wrap" style="width: 100%; padding-top: 8px; padding-bottom: 40px">
-<a class="mm" href="index.html#hausverwaltung"><span class="mn">01</span>Hausverwaltung</a>
+<a class="mm mm-p" href="index.html#immobilien"><span class="mn">01</span>Immobilien</a>
+<div class="msub"><a href="index.html#standort-oesterreich">Österreich</a><a href="index.html#standort-griechenland">Griechenland</a></div>
 <a class="mm" href="index.html#bautraeger"><span class="mn">02</span>Bauträger</a>
-<a class="mm" href="index.html#immobilien"><span class="mn">03</span>Immobilien</a>
+<a class="mm" href="index.html#hausverwaltung"><span class="mn">03</span>Hausverwaltung</a>
 <a class="mm" href="index.html#unternehmen"><span class="mn">04</span>Unternehmen</a>
 <a class="mm" href="#anfrage"><span class="mn">05</span>Anfrage</a>
 <div style="margin-top: 36px; font-size: 13px; line-height: 2; color: #A3A09A"><a href="tel:+436648443054" style="color: #A3A09A; text-decoration: none">+43 664 8443054</a><br><a href="mailto:info@renova-alpenimmobilien.at" style="color: #A3A09A; text-decoration: none">info@renova-alpenimmobilien.at</a></div>
@@ -348,12 +363,13 @@ function setImg(img, src){
     function f(ts){ if(t0===null) t0=ts; var p=Math.min(1,(ts-t0)/dur); window.scrollTo(0, start+(target-start)*ease(p)); if(p<1) requestAnimationFrame(f); }
     requestAnimationFrame(f);
   }
+  window.rnvScrollTo = smoothTo;
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href^="#"]'); if(!a) return;
     var id = a.getAttribute('href').slice(1); if(!id || !document.getElementById(id)) return;
     e.preventDefault(); smoothTo(id, true);
   });
-  if(location.hash && document.getElementById(location.hash.slice(1))){
+  if(location.hash && document.getElementById(location.hash.slice(1)) && !/^#standort-/.test(location.hash)){
     window.addEventListener('load', function(){ window.scrollTo(0,0); setTimeout(function(){ smoothTo(location.hash.slice(1)); }, 250); });
   }
 })();

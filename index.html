@@ -164,11 +164,32 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .mbtn[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
 .topbar nav{position:relative;z-index:2}
 .mmenu{display:none}
+.ddw{position:relative}
+.ddw .nl{display:inline-flex;align-items:center;gap:8px}
+.ddw .car{transition:transform .35s ease}
+.ddw:hover .car,.ddw:focus-within .car{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 23px);left:-24px;min-width:230px;padding:12px 0 14px;background:rgba(12,12,12,.95);border:1px solid rgba(230,228,224,.1);border-top:none;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease,visibility 0s .3s}
+.dd::before{content:"";position:absolute;left:0;right:0;top:-24px;height:24px}
+.ddw:hover .dd,.ddw:focus-within .dd{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .3s ease}
+.dd a{display:block;padding:11px 24px;font-size:10px;letter-spacing:.3em;color:#A3A09A}
+.dd a:hover,.dd a:focus-visible{color:#FFFFFF}
+.dd .ddall{color:#E6E4E0;border-bottom:1px solid #262626;margin-bottom:6px;padding-bottom:14px}
+.msub{display:flex;flex-direction:column;padding:0 0 16px 52px;border-bottom:1px solid #262626}
+.msub a{padding:9px 0;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#A3A09A;text-decoration:none}
+.mm.mm-p{border-bottom:none;padding-bottom:10px}
+.fbar{margin-top:40px;border-top:1px solid #DAD8D3;border-bottom:1px solid #DAD8D3;padding:18px 0;display:flex;flex-wrap:wrap;gap:16px 44px;align-items:center;font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:400}
+.fgrp{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flab{color:#8A8782;margin-right:10px}
+.fcount{margin-left:auto;color:#6E6C68}
+.chip{transition:background .3s ease,color .3s ease,border-color .3s ease}
+.chip:hover{border-color:#0C0C0C!important}
 @media (max-width:900px){
  .navlinks{display:none!important}
  .mbtn{display:flex}
  .topbar nav .wrap{padding-top:14px!important;padding-bottom:14px!important}
  .hlogo{height:17px!important}
+ .flab{width:100%;margin:0 0 2px}
+ .fcount{margin-left:0}
  .hgrad{background:linear-gradient(180deg,rgba(12,12,12,.55) 0%,rgba(12,12,12,.62) 35%,rgba(12,12,12,.5) 70%,rgba(12,12,12,.7) 100%)!important}
  .flogo{width:170px!important}
  .mmenu{display:flex;position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;z-index:1;background:rgba(12,12,12,.97);flex-direction:column;padding-top:73px;box-sizing:border-box;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s;overflow-y:auto}
@@ -196,9 +217,10 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; padding-top: 22px; padding-bottom: 22px">
 <a href="#top" aria-label="RENOVA – nach oben" style="display: block; line-height: 0"><img src="assets/logo/renova-wortmarke-negativ.svg" alt="RENOVA" class="hlogo" style="display: block; height: 18px; width: auto"></a>
 <div class="navlinks" style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400">
-<a class="nl" href="#hausverwaltung">Hausverwaltung</a>
+<div class="ddw"><a class="nl" href="#immobilien" data-standort="alle">Immobilien<svg class="car" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 L5 7 L8.5 3.5" fill="none" stroke="currentColor" stroke-width="1"></path></svg></a>
+<div class="dd"><a class="ddall" href="#immobilien" data-standort="alle">Alle Immobilien</a><a href="#immobilien" data-standort="oesterreich">Österreich</a><a href="#immobilien" data-standort="griechenland">Griechenland</a></div></div>
 <a class="nl" href="#bautraeger">Bauträger</a>
-<a class="nl" href="#immobilien">Immobilien</a>
+<a class="nl" href="#hausverwaltung">Hausverwaltung</a>
 <a class="nl" href="#unternehmen">Unternehmen</a>
 <a class="btn btn-line" href="#kontakt" style="border: 1px solid rgba(230,228,224,0.35); padding: 13px 20px 13px 23px">Kontakt</a>
 </div>
@@ -207,9 +229,10 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </nav>
 <div id="mmenu" class="mmenu">
 <div class="wrap" style="width: 100%; padding-top: 8px; padding-bottom: 40px">
-<a class="mm" href="#hausverwaltung"><span class="mn">01</span>Hausverwaltung</a>
+<a class="mm mm-p" href="#immobilien"><span class="mn">01</span>Immobilien</a>
+<div class="msub"><a href="#immobilien" data-standort="oesterreich">Österreich</a><a href="#immobilien" data-standort="griechenland">Griechenland</a></div>
 <a class="mm" href="#bautraeger"><span class="mn">02</span>Bauträger</a>
-<a class="mm" href="#immobilien"><span class="mn">03</span>Immobilien</a>
+<a class="mm" href="#hausverwaltung"><span class="mn">03</span>Hausverwaltung</a>
 <a class="mm" href="#unternehmen"><span class="mn">04</span>Unternehmen</a>
 <a class="mm" href="#kontakt"><span class="mn">05</span>Kontakt</a>
 <div style="margin-top: 36px; font-size: 13px; line-height: 2; color: #A3A09A"><a href="tel:+436648443054" style="color: #A3A09A; text-decoration: none">+43 664 8443054</a><br><a href="mailto:info@renova-alpenimmobilien.at" style="color: #A3A09A; text-decoration: none">info@renova-alpenimmobilien.at</a></div>
@@ -245,12 +268,12 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,12,12,0.5) 0%, rgba(12,12,12,0) 22%, rgba(12,12,12,0) 70%, rgba(12,12,12,0.6) 100%)"></div>
 <div class="wrap" style="position: relative; width: 100%; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; padding-top: 120px; padding-bottom: 90px">
 <div class="in1" style="display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">
-<span style="display: block; width: 38px; height: 1px; background: #A3A09A"></span>Hausverwaltung · Bauträger · Makler
+<span style="display: block; width: 38px; height: 1px; background: #A3A09A"></span>Immobilien · Bauträger · Hausverwaltung
 </div>
 <h1 class="in2" style="margin: 30px 0 0; font-weight: 200; font-size: 64px; line-height: 1.05; color: #F3F2EF; letter-spacing: -0.005em">Immobilien verstehen.<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #E6E4E0">Werte erhalten.</span></h1>
-<p class="in3" style="margin: 32px 0 0; max-width: 470px; font-size: 16px; line-height: 1.75; color: #E6E4E0">Hausverwaltung mit Bau- und Immobilienkompetenz – persönlich betreut aus Innsbruck.</p>
+<p class="in3" style="margin: 32px 0 0; max-width: 470px; font-size: 16px; line-height: 1.75; color: #E6E4E0">Immobilien, Bauträger und Hausverwaltung aus einer Hand – persönlich betreut aus Innsbruck.</p>
 <div class="in4" style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-top: 40px">
-<a class="btn btn-light" href="#kontakt" style="background: #F3F2EF; color: #0C0C0C; text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 18px 30px 18px 34px">Verwaltung anfragen</a>
+<a class="btn btn-light" href="#immobilien" style="background: #F3F2EF; color: #0C0C0C; text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 18px 30px 18px 34px">Immobilien ansehen</a>
 <a class="btn btn-line" href="#leistungen" style="color: #E6E4E0; text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 10px 0 8px; border-bottom: 1px solid rgba(230,228,224,0.6)">Leistungen ansehen</a>
 </div>
 </div>
@@ -273,10 +296,10 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <p style="margin: 0; max-width: 400px; font-size: 15px; line-height: 1.8; color: #A3A09A">Unsere Geschäftsführung ist seit 1998 in der Bau- und Immobilienbranche tätig. Diese Erfahrung fließt unmittelbar in die Verwaltung Ihrer Immobilie ein.</p>
 </div>
 <div class="grid3 reveal" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 70px">
-<a class="komp" href="#hausverwaltung">
+<a class="komp" href="#immobilien">
 <div style="font-size: 11px; letter-spacing: 0.3em; color: #8A8782">01</div>
-<h3 style="margin: 20px 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: #F3F2EF">Hausverwaltung</h3>
-<p style="margin: 20px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Zuverlässige, sorgfältige Verwaltung für Wohnungseigentum und Mietobjekte.</p>
+<h3 style="margin: 20px 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: #F3F2EF">Immobilienmakler</h3>
+<p style="margin: 20px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Verkauf und Vermietung mit Marktkenntnis, Diskretion und persönlicher Beratung.</p>
 <span class="arr" style="margin-top: 26px"></span>
 </a>
 <a class="komp" href="#bautraeger">
@@ -285,20 +308,187 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <p style="margin: 20px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Von der Planung bis zur schlüsselfertigen Umsetzung – nachhaltig und wertbeständig.</p>
 <span class="arr" style="margin-top: 26px"></span>
 </a>
-<a class="komp" href="#immobilien">
+<a class="komp" href="#hausverwaltung">
 <div style="font-size: 11px; letter-spacing: 0.3em; color: #8A8782">03</div>
-<h3 style="margin: 20px 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: #F3F2EF">Immobilienmakler</h3>
-<p style="margin: 20px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Verkauf und Vermietung mit Marktkenntnis, Diskretion und persönlicher Beratung.</p>
+<h3 style="margin: 20px 0 0; font-size: 14px; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: #F3F2EF">Hausverwaltung</h3>
+<p style="margin: 20px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Zuverlässige, sorgfältige Verwaltung für Wohnungseigentum und Mietobjekte.</p>
 <span class="arr" style="margin-top: 26px"></span>
 </a>
 </div>
 </div>
 </section>
 
-<!-- 01 HAUSVERWALTUNG -->
+<!-- 01 IMMOBILIEN -->
+<section id="immobilien" style="background: #F3F2EF; color: #262626; padding: 110px 0 120px">
+<div class="wrap">
+<div class="chap chap-l"><span class="num">01</span><span class="ln"></span><span class="lbl">Immobilien</span></div>
+<div class="split" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-top: 26px">
+<h2 style="margin: 0; font-weight: 200; font-size: 46px; line-height: 1.15; color: #0C0C0C">Aktuell im Verkauf.<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #6E6C68">Ausgewählte Objekte.</span></h2>
+<div role="tablist" aria-label="Objekte filtern" style="display: flex; flex-wrap: wrap; gap: 26px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400">
+
+<button class="tab" role="tab" type="button" aria-selected="true" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid #0C0C0C; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #0C0C0C; min-height: 44px; cursor: pointer">Alle</button>
+
+<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Kauf</button>
+
+<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Neubau</button>
+
+<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Miete</button>
+
+</div>
+</div>
+
+<div class="fbar">
+<div class="fgrp" role="group" aria-label="Nach Standort filtern"><span class="flab">Standort</span>
+<button class="chip" type="button" data-key="alle" aria-pressed="true" data-on="s.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Alle</button><button class="chip" type="button" data-key="oesterreich" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Österreich</button><button class="chip" type="button" data-key="griechenland" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Griechenland</button>
+</div>
+<div class="fgrp" role="group" aria-label="Sortieren"><span class="flab">Sortieren</span>
+<button class="chip" type="button" data-sort="beliebt" aria-label="Beliebt" aria-pressed="true" data-on="so.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Beliebt</button><button class="chip" type="button" data-sort="neu" aria-label="Neueste zuerst" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Neu</button><button class="chip" type="button" data-sort="preis-auf" aria-label="Preis aufsteigend" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis ↑</button><button class="chip" type="button" data-sort="preis-ab" aria-label="Preis absteigend" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis ↓</button><button class="chip" type="button" data-sort="flaeche" aria-label="Größte Wohnfläche zuerst" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Fläche</button>
+</div>
+<div class="fcount" aria-live="polite">2 Objekte</div>
+</div>
+
+<div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 48px">
+
+<article class="card" data-bilder="[[&quot;assets/img/bungalow-01.jpg&quot;, &quot;Bungalow mit Pool und Garten in der Abenddämmerung&quot;], [&quot;assets/img/bungalow-04.jpg&quot;, &quot;Pool und Terrasse vor der verglasten Fassade&quot;], [&quot;assets/img/bungalow-03.jpg&quot;, &quot;Offener Wohnbereich mit Kamin und Küche&quot;], [&quot;assets/img/bungalow-02.jpg&quot;, &quot;Straßenansicht des Bungalows&quot;]]" data-kat="kauf" data-standort="oesterreich" data-preis="1399000" data-flaeche="192" data-neu="2026-09-20" data-beliebt="1" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<img srcset="assets/img/bungalow-01-960.jpg 960w, assets/img/bungalow-01.jpg 1920w, assets/img/bungalow-01-3200.jpg 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/bungalow-01.jpg" alt="Bungalow mit Pool und Garten in der Abenddämmerung" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Sofort verfügbar</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 4</span>
+</div>
+<a href="objekt-bungalow.html" aria-label="Objekt ansehen: Traum-Bungalow, Musterstadt, € 1.399.000" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Musterstadt</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Traum-Bungalow</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Wohnen auf einer Ebene mit viel Platz für individuelle Wohnideen – und einer großzügigen Freifläche als grüne Ruheoase.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">192 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">429 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">€ 1.399.000</div>
+<div style="font-size: 11px; color: #6E6C68">Energieklasse A</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/kaminia-01.jpg&quot;, &quot;Pool mit Blick aufs Meer&quot;], [&quot;assets/img/kaminia-05.jpg&quot;, &quot;Poolterrasse im Abendlicht&quot;], [&quot;assets/img/kaminia-03.jpg&quot;, &quot;Terrasse mit Pergola und Meerblick&quot;], [&quot;assets/img/kaminia-02.jpg&quot;, &quot;Schlafzimmer mit Blick in den Garten&quot;], [&quot;assets/img/kaminia-04.jpg&quot;, &quot;Badezimmer&quot;]]" data-kat="kauf" data-standort="griechenland" data-preis="659000" data-flaeche="152" data-neu="2026-10-05" data-beliebt="2" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<img srcset="assets/img/kaminia-01-960.jpg 960w, assets/img/kaminia-01.jpg 1920w, assets/img/kaminia-01-3200.jpg 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/kaminia-01.jpg" alt="Pool mit Blick aufs Meer" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Sofort verfügbar</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 5</span>
+</div>
+<a href="objekt-kaminia.html" aria-label="Objekt ansehen: Urlaubshaus am Meer, Kaminia · Griechenland, ab € 659.000" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Kaminia · Griechenland</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Urlaubshaus am Meer</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Ihr Rückzugsort in Griechenland – großzügiger Raum für erholsame Urlaubstage mit Familie und Freunden.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">152 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">6</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">125–250 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">ab € 659.000</div>
+<div style="font-size: 11px; color: #6E6C68"></div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+</div>
+
+<div class="sc-if empty" hidden>
+<p style="margin: 0; padding: 60px 0; text-align: center; font-size: 15px; color: #6E6C68">Derzeit keine Objekte in dieser Kategorie – gerne informieren wir Sie, sobald ein passendes Objekt verfügbar ist.</p>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 64px">
+<a class="btn btn-dark" href="#kontakt" style="color: #0C0C0C; text-decoration: none; border: 1px solid #0C0C0C; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 18px 30px 18px 34px">Suchauftrag erteilen</a>
+</div>
+</div>
+</section>
+
+<!-- 02 BAUTRÄGER -->
+<section id="bautraeger" style="background: #0C0C0C; padding: 0 0 120px">
+<div style="position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: center">
+<img srcset="assets/img/bungalow-01-960.jpg 960w, assets/img/bungalow-01.jpg 1920w, assets/img/bungalow-01-3200.jpg 3200w" sizes="100vw" class="rf" src="assets/img/bungalow-01.jpg" alt="Neubau mit Pool und Garten" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%">
+<div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,12,12,0.86) 0%, rgba(12,12,12,0.7) 30%, rgba(12,12,12,0.3) 55%, rgba(12,12,12,0) 75%)"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 75% at 18% 55%, rgba(12,12,12,0.55) 0%, rgba(12,12,12,0) 70%)"></div>
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,12,12,0.5) 0%, rgba(12,12,12,0) 25%, rgba(12,12,12,0) 60%, rgba(12,12,12,1) 100%)"></div>
+<div class="wrap reveal" style="position: relative; width: 100%; padding-top: 120px; padding-bottom: 80px">
+<div class="chap chap-d"><span class="num">02</span><span class="ln"></span><span class="lbl">Bauträger</span></div>
+<h2 style="margin: 26px 0 0; font-weight: 200; font-size: 52px; line-height: 1.1; color: #F3F2EF">Ausgezeichnete<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em">Baukompetenz.</span></h2>
+<p style="margin: 26px 0 0; max-width: 460px; font-size: 16px; line-height: 1.75; color: #E6E4E0">Wir entwickeln Wohnprojekte, die wir später selbst verwalten könnten – darum planen wir mit Blick auf Qualität, Lebensdauer und Werterhalt.</p>
+<div style="margin-top: 30px; display: inline-flex; align-items: center; gap: 14px; border: 1px solid rgba(230,228,224,0.45); padding: 11px 18px 11px 20px; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #F3F2EF; font-weight: 400">Winner 2024 · Real Estate &amp; Architecture Awards</div>
+</div>
+</div>
+
+<div class="wrap">
+<div class="split" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; padding-top: 40px">
+<h3 style="margin: 0; font-weight: 200; font-size: 34px; line-height: 1.2; color: #F3F2EF">Vom Grundstück<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #E6E4E0">bis zur Schlüsselübergabe.</span></h3>
+<p style="margin: 0; max-width: 400px; font-size: 15px; line-height: 1.8; color: #A3A09A">Ein Ansprechpartner für das gesamte Projekt – und auf Wunsch darüber hinaus.</p>
+</div>
+<ol class="grid5 reveal" style="margin: 60px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px">
+
+<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
+<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">01</div>
+<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Grundstück &amp; Analyse</h4>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Lage, Bebaubarkeit und Wirtschaftlichkeit prüfen.</p>
+</li>
+
+<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
+<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">02</div>
+<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Planung &amp; Einreichung</h4>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Architektur, Fachplanung und Baubewilligung.</p>
+</li>
+
+<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
+<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">03</div>
+<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Bau &amp; Qualität</h4>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Bauaufsicht, Termine und Kosten im Griff.</p>
+</li>
+
+<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
+<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">04</div>
+<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Verkauf &amp; Übergabe</h4>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Persönliche Begleitung bis zum Schlüssel.</p>
+</li>
+
+<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
+<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">05</div>
+<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Verwaltung danach</h4>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Auf Wunsch betreuen wir das Haus weiter.</p>
+</li>
+
+</ol>
+
+<div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 90px">
+<div style="background: #161616; border: 1px solid #262626; padding: 44px 44px 46px">
+<div style="font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Für Käufer</div>
+<h4 style="margin: 18px 0 0; font-weight: 200; font-size: 28px; color: #F3F2EF">Eigentum mit Substanz.</h4>
+<p style="margin: 16px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Durchdachte Grundrisse, hochwertige Ausstattung und Energieklasse A – mit Begleitung von der Reservierung bis zur Übergabe.</p>
+<a class="btn btn-line" href="#immobilien" style="display: inline-block; margin-top: 28px; color: #E6E4E0; text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 8px 0 7px; border-bottom: 1px solid rgba(230,228,224,0.6)">Aktuelle Projekte</a>
+</div>
+<div style="background: #161616; border: 1px solid #262626; padding: 44px 44px 46px">
+<div style="font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Für Grundstückseigentümer</div>
+<h4 style="margin: 18px 0 0; font-weight: 200; font-size: 28px; color: #F3F2EF">Ihr Grundstück. Unser Projekt.</h4>
+<p style="margin: 16px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Wir prüfen Bebaubarkeit und Potenzial Ihres Grundstücks und entwickeln gemeinsam mit Ihnen die passende Lösung – Ankauf oder Partnerschaft.</p>
+<a class="btn btn-line" href="#kontakt" style="display: inline-block; margin-top: 28px; color: #E6E4E0; text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 8px 0 7px; border-bottom: 1px solid rgba(230,228,224,0.6)">Grundstück anbieten</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 03 HAUSVERWALTUNG -->
 <section id="hausverwaltung" style="background: #F3F2EF; color: #262626; padding: 120px 0">
 <div class="wrap">
-<div class="chap chap-l"><span class="num">01</span><span class="ln"></span><span class="lbl">Hausverwaltung</span></div>
+<div class="chap chap-l"><span class="num">03</span><span class="ln"></span><span class="lbl">Hausverwaltung</span></div>
 <div class="split" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; margin-top: 26px">
 <h2 style="margin: 0; font-weight: 200; font-size: 46px; line-height: 1.15; color: #0C0C0C">Nicht nur verwaltet.<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #6E6C68">Wertvoll erhalten.</span></h2>
 <p style="margin: 0; max-width: 440px; font-size: 15px; line-height: 1.8; color: #4A4946">Wir betreuen Wohnungseigentumsgemeinschaften und Mietobjekte in Tirol – kaufmännisch genau, technisch fundiert und mit kurzen Wegen zu uns.</p>
@@ -402,163 +592,6 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </div>
 </section>
 
-<!-- 02 BAUTRÄGER -->
-<section id="bautraeger" style="background: #0C0C0C; padding: 0 0 120px">
-<div style="position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: center">
-<img srcset="assets/img/bungalow-01-960.jpg 960w, assets/img/bungalow-01.jpg 1920w, assets/img/bungalow-01-3200.jpg 3200w" sizes="100vw" class="rf" src="assets/img/bungalow-01.jpg" alt="Neubau mit Pool und Garten" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%">
-<div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,12,12,0.86) 0%, rgba(12,12,12,0.7) 30%, rgba(12,12,12,0.3) 55%, rgba(12,12,12,0) 75%)"></div>
-<div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 75% at 18% 55%, rgba(12,12,12,0.55) 0%, rgba(12,12,12,0) 70%)"></div>
-<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,12,12,0.5) 0%, rgba(12,12,12,0) 25%, rgba(12,12,12,0) 60%, rgba(12,12,12,1) 100%)"></div>
-<div class="wrap reveal" style="position: relative; width: 100%; padding-top: 120px; padding-bottom: 80px">
-<div class="chap chap-d"><span class="num">02</span><span class="ln"></span><span class="lbl">Bauträger</span></div>
-<h2 style="margin: 26px 0 0; font-weight: 200; font-size: 52px; line-height: 1.1; color: #F3F2EF">Ausgezeichnete<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em">Baukompetenz.</span></h2>
-<p style="margin: 26px 0 0; max-width: 460px; font-size: 16px; line-height: 1.75; color: #E6E4E0">Wir entwickeln Wohnprojekte, die wir später selbst verwalten könnten – darum planen wir mit Blick auf Qualität, Lebensdauer und Werterhalt.</p>
-<div style="margin-top: 30px; display: inline-flex; align-items: center; gap: 14px; border: 1px solid rgba(230,228,224,0.45); padding: 11px 18px 11px 20px; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #F3F2EF; font-weight: 400">Winner 2024 · Real Estate &amp; Architecture Awards</div>
-</div>
-</div>
-
-<div class="wrap">
-<div class="split" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; padding-top: 40px">
-<h3 style="margin: 0; font-weight: 200; font-size: 34px; line-height: 1.2; color: #F3F2EF">Vom Grundstück<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #E6E4E0">bis zur Schlüsselübergabe.</span></h3>
-<p style="margin: 0; max-width: 400px; font-size: 15px; line-height: 1.8; color: #A3A09A">Ein Ansprechpartner für das gesamte Projekt – und auf Wunsch darüber hinaus.</p>
-</div>
-<ol class="grid5 reveal" style="margin: 60px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px">
-
-<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
-<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">01</div>
-<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Grundstück &amp; Analyse</h4>
-<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Lage, Bebaubarkeit und Wirtschaftlichkeit prüfen.</p>
-</li>
-
-<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
-<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">02</div>
-<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Planung &amp; Einreichung</h4>
-<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Architektur, Fachplanung und Baubewilligung.</p>
-</li>
-
-<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
-<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">03</div>
-<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Bau &amp; Qualität</h4>
-<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Bauaufsicht, Termine und Kosten im Griff.</p>
-</li>
-
-<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
-<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">04</div>
-<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Verkauf &amp; Übergabe</h4>
-<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Persönliche Begleitung bis zum Schlüssel.</p>
-</li>
-
-<li style="border-top: 1px solid #3A3A3A; padding-top: 26px">
-<div style="font-size: 34px; font-weight: 200; color: #6E6C68; line-height: 1">05</div>
-<h4 style="margin: 20px 0 0; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #F3F2EF; line-height: 1.6">Verwaltung danach</h4>
-<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.75; color: #A3A09A">Auf Wunsch betreuen wir das Haus weiter.</p>
-</li>
-
-</ol>
-
-<div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 90px">
-<div style="background: #161616; border: 1px solid #262626; padding: 44px 44px 46px">
-<div style="font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Für Käufer</div>
-<h4 style="margin: 18px 0 0; font-weight: 200; font-size: 28px; color: #F3F2EF">Eigentum mit Substanz.</h4>
-<p style="margin: 16px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Durchdachte Grundrisse, hochwertige Ausstattung und Energieklasse A – mit Begleitung von der Reservierung bis zur Übergabe.</p>
-<a class="btn btn-line" href="#immobilien" style="display: inline-block; margin-top: 28px; color: #E6E4E0; text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 8px 0 7px; border-bottom: 1px solid rgba(230,228,224,0.6)">Aktuelle Projekte</a>
-</div>
-<div style="background: #161616; border: 1px solid #262626; padding: 44px 44px 46px">
-<div style="font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Für Grundstückseigentümer</div>
-<h4 style="margin: 18px 0 0; font-weight: 200; font-size: 28px; color: #F3F2EF">Ihr Grundstück. Unser Projekt.</h4>
-<p style="margin: 16px 0 0; font-size: 14px; line-height: 1.8; color: #A3A09A">Wir prüfen Bebaubarkeit und Potenzial Ihres Grundstücks und entwickeln gemeinsam mit Ihnen die passende Lösung – Ankauf oder Partnerschaft.</p>
-<a class="btn btn-line" href="#kontakt" style="display: inline-block; margin-top: 28px; color: #E6E4E0; text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 8px 0 7px; border-bottom: 1px solid rgba(230,228,224,0.6)">Grundstück anbieten</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- 03 IMMOBILIEN -->
-<section id="immobilien" style="background: #F3F2EF; color: #262626; padding: 110px 0 120px">
-<div class="wrap">
-<div class="chap chap-l"><span class="num">03</span><span class="ln"></span><span class="lbl">Immobilien</span></div>
-<div class="split" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-top: 26px">
-<h2 style="margin: 0; font-weight: 200; font-size: 46px; line-height: 1.15; color: #0C0C0C">Aktuell im Verkauf.<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #6E6C68">Ausgewählte Objekte.</span></h2>
-<div role="tablist" aria-label="Objekte filtern" style="display: flex; flex-wrap: wrap; gap: 26px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400">
-
-<button class="tab" role="tab" type="button" aria-selected="true" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid #0C0C0C; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #0C0C0C; min-height: 44px; cursor: pointer">Alle</button>
-
-<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Kauf</button>
-
-<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Neubau</button>
-
-<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Miete</button>
-
-</div>
-</div>
-
-<div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 60px">
-
-<article class="card" data-bilder="[[&quot;assets/img/bungalow-01.jpg&quot;, &quot;Bungalow mit Pool und Garten in der Abenddämmerung&quot;], [&quot;assets/img/bungalow-04.jpg&quot;, &quot;Pool und Terrasse vor der verglasten Fassade&quot;], [&quot;assets/img/bungalow-03.jpg&quot;, &quot;Offener Wohnbereich mit Kamin und Küche&quot;], [&quot;assets/img/bungalow-02.jpg&quot;, &quot;Straßenansicht des Bungalows&quot;]]" data-kat="kauf" style="background: #FFFFFF; display: flex; flex-direction: column">
-<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
-<img srcset="assets/img/bungalow-01-960.jpg 960w, assets/img/bungalow-01.jpg 1920w, assets/img/bungalow-01-3200.jpg 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/bungalow-01.jpg" alt="Bungalow mit Pool und Garten in der Abenddämmerung" style="width: 100%; height: 100%; object-fit: cover; display: block">
-<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Sofort verfügbar</span>
-<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 4</span>
-</div>
-<a href="objekt-bungalow.html" aria-label="Objekt ansehen: Traum-Bungalow, Musterstadt, € 1.399.000" style="display: block; color: inherit; text-decoration: none">
-<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Musterstadt</div>
-<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Traum-Bungalow</h3>
-<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Wohnen auf einer Ebene mit viel Platz für individuelle Wohnideen – und einer großzügigen Freifläche als grüne Ruheoase.</p>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">192 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">429 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
-<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">€ 1.399.000</div>
-<div style="font-size: 11px; color: #6E6C68">Energieklasse A</div>
-</div>
-<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
-</div>
-</a>
-</article>
-
-<article class="card" data-bilder="[[&quot;assets/img/kaminia-01.jpg&quot;, &quot;Pool mit Blick aufs Meer&quot;], [&quot;assets/img/kaminia-05.jpg&quot;, &quot;Poolterrasse im Abendlicht&quot;], [&quot;assets/img/kaminia-03.jpg&quot;, &quot;Terrasse mit Pergola und Meerblick&quot;], [&quot;assets/img/kaminia-02.jpg&quot;, &quot;Schlafzimmer mit Blick in den Garten&quot;], [&quot;assets/img/kaminia-04.jpg&quot;, &quot;Badezimmer&quot;]]" data-kat="kauf" style="background: #FFFFFF; display: flex; flex-direction: column">
-<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
-<img srcset="assets/img/kaminia-01-960.jpg 960w, assets/img/kaminia-01.jpg 1920w, assets/img/kaminia-01-3200.jpg 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/kaminia-01.jpg" alt="Pool mit Blick aufs Meer" style="width: 100%; height: 100%; object-fit: cover; display: block">
-<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Sofort verfügbar</span>
-<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 5</span>
-</div>
-<a href="objekt-kaminia.html" aria-label="Objekt ansehen: Urlaubshaus am Meer, Kaminia · Griechenland, ab € 659.000" style="display: block; color: inherit; text-decoration: none">
-<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Kaminia · Griechenland</div>
-<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Urlaubshaus am Meer</h3>
-<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Ihr Rückzugsort in Griechenland – großzügiger Raum für erholsame Urlaubstage mit Familie und Freunden.</p>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">152 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">6</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">125–250 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
-<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">ab € 659.000</div>
-<div style="font-size: 11px; color: #6E6C68"></div>
-</div>
-<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
-</div>
-</a>
-</article>
-
-</div>
-
-<div class="sc-if empty" hidden>
-<p style="margin: 0; padding: 60px 0; text-align: center; font-size: 15px; color: #6E6C68">Derzeit keine Objekte in dieser Kategorie – gerne informieren wir Sie, sobald ein passendes Objekt verfügbar ist.</p>
-</div>
-<div style="display: flex; justify-content: center; margin-top: 64px">
-<a class="btn btn-dark" href="#kontakt" style="color: #0C0C0C; text-decoration: none; border: 1px solid #0C0C0C; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 18px 30px 18px 34px">Suchauftrag erteilen</a>
-</div>
-</div>
-</section>
-
 <!-- CLAIM / UNTERNEHMEN -->
 <section id="unternehmen" style="background: radial-gradient(ellipse at 50% 30%, #363636 0%, #1A1A1A 45%, #0A0A0A 100%); padding: 120px 0 130px; text-align: center">
 <div class="wrap reveal" style="display: flex; flex-direction: column; align-items: center">
@@ -601,12 +634,13 @@ function setImg(img, src){
     function f(ts){ if(t0===null) t0=ts; var p=Math.min(1,(ts-t0)/dur); window.scrollTo(0, start+(target-start)*ease(p)); if(p<1) requestAnimationFrame(f); }
     requestAnimationFrame(f);
   }
+  window.rnvScrollTo = smoothTo;
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href^="#"]'); if(!a) return;
     var id = a.getAttribute('href').slice(1); if(!id || !document.getElementById(id)) return;
     e.preventDefault(); smoothTo(id, true);
   });
-  if(location.hash && document.getElementById(location.hash.slice(1))){
+  if(location.hash && document.getElementById(location.hash.slice(1)) && !/^#standort-/.test(location.hash)){
     window.addEventListener('load', function(){ window.scrollTo(0,0); setTimeout(function(){ smoothTo(location.hash.slice(1)); }, 250); });
   }
 })();
@@ -636,17 +670,40 @@ function setImg(img, src){
     el.style.opacity = on ? 1 : 0; el.style.transform = 'scale(' + (on ? 1 : 1.06) + ')'; el.style.zIndex = on ? 2 : 1;
   }
   if (slides.length > 1) setInterval(function(){ sStyle(slides[cur], false); cur = (cur + 1) % slides.length; sStyle(slides[cur], true); }, 2600);
-  // Filter
+  // Filter, Standort, Sortierung
+  var cards = Array.prototype.slice.call(document.querySelectorAll('article.card'));
+  var grid = cards.length ? cards[0].parentNode : null;
+  var st = { kat: 'alle', standort: 'alle', sort: 'beliebt' };
   var tabs = document.querySelectorAll('[data-on="t.pick"]');
   var map = {'Alle':'alle','Kauf':'kauf','Neubau':'neubau','Miete':'miete'};
-  tabs.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var f = map[btn.textContent.trim()], n = 0;
-      tabs.forEach(function(b){ var on = b === btn; b.setAttribute('aria-selected', on); b.style.borderBottomColor = on ? '#0C0C0C' : 'transparent'; b.style.color = on ? '#0C0C0C' : '#6E6C68'; });
-      document.querySelectorAll('article.card').forEach(function(c){ var show = f === 'alle' || c.getAttribute('data-kat') === f; c.hidden = !show; if(show) n++; });
-      var e = document.querySelector('.sc-if.empty'); if(e) e.hidden = n > 0;
+  var cmp = {
+    beliebt: function(a,b){ return a.dataset.beliebt - b.dataset.beliebt; },
+    neu: function(a,b){ return a.dataset.neu < b.dataset.neu ? 1 : -1; },
+    'preis-auf': function(a,b){ return a.dataset.preis - b.dataset.preis; },
+    'preis-ab': function(a,b){ return b.dataset.preis - a.dataset.preis; },
+    flaeche: function(a,b){ return b.dataset.flaeche - a.dataset.flaeche; }
+  };
+  function chip(b, on){ b.setAttribute('aria-pressed', on); b.style.borderColor = on ? '#0C0C0C' : '#C9C6C0'; b.style.background = on ? '#0C0C0C' : 'transparent'; b.style.color = on ? '#F3F2EF' : '#4A4946'; }
+  function apply(){
+    if(!grid) return;
+    var n = 0;
+    cards.slice().sort(cmp[st.sort]).forEach(function(c){
+      grid.appendChild(c);
+      var show = (st.kat === 'alle' || c.getAttribute('data-kat') === st.kat) && (st.standort === 'alle' || c.dataset.standort === st.standort);
+      c.hidden = !show; if(show) n++;
     });
-  });
+    tabs.forEach(function(b){ var on = map[b.textContent.trim()] === st.kat; b.setAttribute('aria-selected', on); b.style.borderBottomColor = on ? '#0C0C0C' : 'transparent'; b.style.color = on ? '#0C0C0C' : '#6E6C68'; });
+    document.querySelectorAll('[data-on="s.pick"]').forEach(function(b){ chip(b, b.dataset.key === st.standort); });
+    document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ chip(b, b.dataset.sort === st.sort); });
+    var cnt = document.querySelector('.fcount'); if(cnt) cnt.textContent = n + (n === 1 ? ' Objekt' : ' Objekte');
+    var e = document.querySelector('.sc-if.empty'); if(e) e.hidden = n > 0;
+  }
+  tabs.forEach(function(b){ b.addEventListener('click', function(){ st.kat = map[b.textContent.trim()]; apply(); }); });
+  document.querySelectorAll('[data-on="s.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.standort = b.dataset.key; apply(); }); });
+  document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.sort = b.dataset.sort; apply(); }); });
+  document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('a[data-standort]'); if(a){ st.standort = a.getAttribute('data-standort'); apply(); } });
+  var hm = location.hash.match(/^#standort-([a-z]+)$/);
+  if(hm){ st.standort = hm[1]; apply(); window.addEventListener('load', function(){ window.scrollTo(0,0); setTimeout(function(){ if(window.rnvScrollTo) window.rnvScrollTo('immobilien'); }, 250); }); }
 })();
 </script>
 </body>
