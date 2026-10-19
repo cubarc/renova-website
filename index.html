@@ -183,6 +183,16 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .fcount{margin-left:auto;color:#6E6C68}
 .chip{transition:background .3s ease,color .3s ease,border-color .3s ease}
 .chip:hover{border-color:#0C0C0C!important}
+.chip .dir{display:inline-block;margin-left:8px;letter-spacing:0;opacity:.45}
+.chip[aria-pressed="true"] .dir{opacity:1}
+.zgrp{gap:14px}
+.zrange{-webkit-appearance:none;appearance:none;width:150px;height:18px;background:transparent;cursor:pointer;margin:0}
+.zrange::-webkit-slider-runnable-track{height:1px;background:#0C0C0C}
+.zrange::-moz-range-track{height:1px;background:#0C0C0C}
+.zrange::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:#0C0C0C;border:3px solid #F3F2EF;box-shadow:0 0 0 1px #0C0C0C;margin-top:-7px}
+.zrange::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:#0C0C0C;border:3px solid #F3F2EF;box-shadow:0 0 0 1px #0C0C0C}
+.zrange:focus-visible{outline:1px solid #0C0C0C;outline-offset:6px}
+.zval{min-width:92px;color:#0C0C0C}
 @media (max-width:900px){
  .navlinks{display:none!important}
  .mbtn{display:flex}
@@ -211,6 +221,26 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .kfoto img{width:100%;height:100%;object-fit:cover;display:block}
 .kavatar{display:block;width:64px;height:64px;border-radius:50%;object-fit:cover;margin-top:18px;border:1px solid #3A3A3A}
 @media (max-width:900px){.kgrid{grid-template-columns:minmax(0,1fr)!important;gap:44px}}
+
+.hbadge{position:absolute;right:clamp(20px,5vw,40px);bottom:44px;z-index:3;display:flex;align-items:center;gap:18px;padding:16px 22px 16px 18px;background:rgba(12,12,12,.55);border:1px solid rgba(230,228,224,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#E6E4E0;text-decoration:none;transition:background .35s ease,border-color .35s ease}
+.hbadge:hover{background:rgba(12,12,12,.75);border-color:rgba(230,228,224,.5)}
+.hbadge img{display:block;height:34px;width:auto}
+.hbadge .t1{font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:400;color:#F3F2EF}
+.hbadge .t2{margin-top:6px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#A3A09A}
+.award-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:88px;align-items:center}
+.stars{display:flex;gap:6px;color:#D9D6CF}
+.stars svg{display:block}
+.awfig{position:relative;margin:0}
+.awfig .zoom{aspect-ratio:4 / 5;background:#1A1A1A}
+.awfig img.rf{width:100%;height:100%;object-fit:cover;display:block}
+.awfig figcaption{position:absolute;left:0;right:0;bottom:0;padding:70px 28px 24px;background:linear-gradient(180deg,rgba(12,12,12,0),rgba(12,12,12,.78));font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#E6E4E0;font-weight:400}
+.awseal{position:absolute;top:24px;right:24px;width:92px;height:92px;border-radius:50%;border:1px solid rgba(243,242,239,.55);background:rgba(12,12,12,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.awseal img{height:28px;width:auto;display:block}
+.awseal span{font-size:10px;letter-spacing:.3em;color:#F3F2EF;padding-left:.3em}
+@media (max-width:900px){
+ .hbadge{position:relative;right:auto;bottom:auto;margin:0 clamp(20px,5vw,40px) 36px;align-self:flex-start}
+ .award-grid{grid-template-columns:minmax(0,1fr)!important;gap:48px}
+}
 
 </style>
 </head>
@@ -250,25 +280,13 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <header id="top" class="hero" style="position: relative; min-height: 726px; overflow: hidden; display: flex; flex-direction: column">
 <div class="slides" aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #0C0C0C">
 
-<img srcset="assets/img/staina-00-960.jpg 960w, assets/img/staina-00.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-00.jpg" alt="" style="opacity: 1; transform: scale(1); transition: opacity 1.1s ease, transform 4s linear; z-index: 2">
+<img srcset="assets/img/staina-slide-22-960.jpg 960w, assets/img/staina-slide-22.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-slide-22.jpg" alt="" style="opacity: 1; transform: scale(1); transition: opacity 1.1s ease, transform 4s linear; z-index: 2">
 
-<img srcset="assets/img/staina-22-960.jpg 960w, assets/img/staina-22.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-22.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
+<img srcset="assets/img/staina-slide-23-960.jpg 960w, assets/img/staina-slide-23.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-slide-23.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
 
-<img srcset="assets/img/staina-19-960.jpg 960w, assets/img/staina-19.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-19.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
+<img srcset="assets/img/staina-slide-15-960.jpg 960w, assets/img/staina-slide-15.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-slide-15.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
 
-<img srcset="assets/img/staina-23-960.jpg 960w, assets/img/staina-23.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-23.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
-
-<img srcset="assets/img/staina-25-960.jpg 960w, assets/img/staina-25.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-25.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
-
-<img srcset="assets/img/staina-05-960.jpg 960w, assets/img/staina-05.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-05.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
-
-<img srcset="assets/img/staina-03-960.jpg 960w, assets/img/staina-03.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-03.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
-
-<img srcset="assets/img/staina-07-960.jpg 960w, assets/img/staina-07.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-07.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
-
-<img srcset="assets/img/staina-15-960.jpg 960w, assets/img/staina-15.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-15.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
-
-<img srcset="assets/img/staina-04-960.jpg 960w, assets/img/staina-04.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-04.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
+<img srcset="assets/img/staina-slide-21-960.jpg 960w, assets/img/staina-slide-21.jpg 1920w" sizes="100vw" class="rf slide" src="assets/img/staina-slide-21.jpg" alt="" style="opacity: 0; transform: scale(1.06); transition: opacity 1.1s ease, transform 0s 1.2s linear; z-index: 1">
 
 </div>
 <div class="hgrad" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,12,12,0.82) 0%, rgba(12,12,12,0.62) 32%, rgba(12,12,12,0.18) 62%, rgba(12,12,12,0) 80%)"></div>
@@ -285,6 +303,10 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <a class="btn btn-line" href="#leistungen" style="color: #E6E4E0; text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; padding: 10px 0 8px; border-bottom: 1px solid rgba(230,228,224,0.6)">Leistungen ansehen</a>
 </div>
 </div>
+<a class="hbadge in4" href="#auszeichnung" aria-label="Auszeichnung: Real Estate &amp; Architecture Awards Winner 2024">
+<img src="assets/img/ra-mark-weiss.png" alt="">
+<span><span class="t1" style="display:block">Winner 2024</span><span class="t2" style="display:block">Real Estate &amp; Architecture Awards</span></span>
+</a>
 </header>
 
 <!-- KENNZAHLEN -->
@@ -293,6 +315,31 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div><div style="font-size: 42px; font-weight: 200; color: #F3F2EF; line-height: 1">1998</div><div style="margin-top: 14px; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Erfahrung seit</div></div>
 <div><div style="font-size: 42px; font-weight: 200; color: #F3F2EF; line-height: 1">3</div><div style="margin-top: 14px; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Kompetenzen aus einer Hand</div></div>
 <div><div style="font-size: 42px; font-weight: 200; color: #F3F2EF; line-height: 1">2024</div><div style="margin-top: 14px; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Real Estate &amp; Architecture Award</div></div>
+</div>
+</section>
+
+<!-- AUSZEICHNUNG -->
+<section id="auszeichnung" aria-label="Auszeichnung" style="background: linear-gradient(160deg, #0A0A0A 0%, #141414 55%, #1D1D1D 100%); padding: 120px 0 130px; border-top: 1px solid #262626">
+<div class="wrap award-grid">
+<div class="reveal">
+<div style="display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #A3A09A; font-weight: 400"><span style="display: block; width: 38px; height: 1px; background: #A3A09A"></span>Ausgezeichnet</div>
+<img src="assets/img/ra-award-weiss.png" alt="Real Estate &amp; Architecture Awards – Winner 2024" style="display: block; width: 168px; height: auto; margin-top: 44px">
+<h2 style="margin: 48px 0 0; font-weight: 200; font-size: 46px; line-height: 1.15; color: #F3F2EF">Best of Luxury Residential Estates.<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #E6E4E0">Winner 2024.</span></h2>
+<div style="margin-top: 28px; display: flex; align-items: center; gap: 18px">
+<div class="stars" aria-label="5 von 5 Sternen"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z"/></svg></div>
+<span style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #A3A09A; font-weight: 400">Exzellent ausgezeichnet</span>
+</div>
+<p style="margin: 34px 0 0; max-width: 520px; font-size: 16px; line-height: 1.85; color: #C9C6C0">Die Residenz Calista in St. Johann in Tirol – ein unter der Verantwortung unserer Geschäftsführung realisiertes Wohnbauprojekt – wurde bei den Real Estate &amp; Architecture Awards 2024 in der Kategorie „Best of Luxury Residential Estates“ ausgezeichnet.</p>
+<p style="margin: 18px 0 0; max-width: 520px; font-size: 16px; line-height: 1.85; color: #C9C6C0">Großzügige Glasfronten, edle Materialien und eine durchdachte Architektur zeigen, wofür wir stehen: Qualität, die bleibt.</p>
+<div style="margin-top: 40px; padding-top: 22px; border-top: 1px solid #2E2E2E; display: flex; flex-wrap: wrap; gap: 12px 40px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A8782; font-weight: 400">
+<span>Verliehen 14.11.2024 · München</span><span>Unabhängige Auszeichnung</span>
+</div>
+</div>
+<figure class="awfig reveal">
+<div class="zoom"><img srcset="assets/img/calista-fassade-960.jpg 960w, assets/img/calista-fassade.jpg 1920w" sizes="(max-width: 1240px) 100vw, 1200px" class="rf" src="assets/img/calista-fassade.jpg" alt="Residenz Calista in St. Johann in Tirol – ausgezeichnet mit dem Real Estate &amp; Architecture Award 2024"></div>
+<div class="awseal" aria-hidden="true"><img src="assets/img/ra-mark-weiss.png" alt=""><span>2024</span></div>
+<figcaption>Residenz Calista · St. Johann in Tirol</figcaption>
+</figure>
 </div>
 </section>
 
@@ -348,14 +395,15 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <button class="chip" type="button" data-key="alle" aria-pressed="true" data-on="s.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Alle</button><button class="chip" type="button" data-key="st-johann" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">St. Johann in Tirol</button><button class="chip" type="button" data-key="steinach" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Steinach am Brenner</button>
 </div>
 <div class="fgrp" role="group" aria-label="Sortieren"><span class="flab">Sortieren</span>
-<button class="chip" type="button" data-sort="beliebt" aria-label="Beliebt" aria-pressed="true" data-on="so.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Beliebt</button><button class="chip" type="button" data-sort="neu" aria-label="Neueste zuerst" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Neu</button><button class="chip" type="button" data-sort="preis-auf" aria-label="Preis aufsteigend" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis ↑</button><button class="chip" type="button" data-sort="preis-ab" aria-label="Preis absteigend" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis ↓</button><button class="chip" type="button" data-sort="flaeche" aria-label="Größte Wohnfläche zuerst" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Fläche</button>
+<button class="chip" type="button" data-sort="beliebt" aria-label="Nach Beliebtheit sortieren" aria-pressed="true" data-on="so.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Beliebt<span class="dir"></span></button><button class="chip" type="button" data-sort="preis" aria-label="Nach Preis sortieren, erneut klicken kehrt die Richtung um" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis<span class="dir">↕</span></button><button class="chip" type="button" data-sort="flaeche" aria-label="Nach Wohnfläche sortieren, erneut klicken kehrt die Richtung um" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Fläche<span class="dir">↕</span></button>
 </div>
+<div class="fgrp zgrp" role="group" aria-label="Zimmer"><span class="flab">Zimmer</span><input class="zrange" type="range" min="1" max="4" step="1" value="1" aria-label="Mindestanzahl Zimmer" aria-valuetext="alle"><span class="zval" aria-hidden="true">Alle</span></div>
 <div class="fcount" aria-live="polite">12 Objekte</div>
 </div>
 
 <div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 48px">
 
-<article class="card" data-bilder="[[&quot;assets/img/calista-winter.jpg&quot;, &quot;Residenz Calista mit Blick auf den Wilden Kaiser&quot;], [&quot;assets/img/calista-hero.jpg&quot;, &quot;Residenz Calista vor dem Wilden Kaiser&quot;], [&quot;assets/img/calista-garten.jpg&quot;, &quot;Garten und Terrasse mit Bergblick&quot;], [&quot;assets/img/calista-fassade.jpg&quot;, &quot;Gartenseite der Residenz Calista&quot;], [&quot;assets/img/calista-ost.jpg&quot;, &quot;Ansicht mit Kitzbüheler Horn&quot;], [&quot;assets/img/calista-eingang.jpg&quot;, &quot;Zugang und Eingang&quot;]]" data-kat="kauf" data-standort="st-johann" data-preis="1670000" data-flaeche="135" data-neu="2026-10-19" data-beliebt="0" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/calista-winter.jpg&quot;, &quot;Residenz Calista mit Blick auf den Wilden Kaiser&quot;], [&quot;assets/img/calista-hero.jpg&quot;, &quot;Residenz Calista vor dem Wilden Kaiser&quot;], [&quot;assets/img/calista-garten.jpg&quot;, &quot;Garten und Terrasse mit Bergblick&quot;], [&quot;assets/img/calista-fassade.jpg&quot;, &quot;Gartenseite der Residenz Calista&quot;], [&quot;assets/img/calista-ost.jpg&quot;, &quot;Ansicht mit Kitzbüheler Horn&quot;], [&quot;assets/img/calista-eingang.jpg&quot;, &quot;Zugang und Eingang&quot;]]" data-kat="kauf" data-standort="st-johann" data-preis="1670000" data-flaeche="135" data-zimmer="4" data-neu="2026-10-19" data-beliebt="0" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/calista-winter-960.jpg 960w, assets/img/calista-winter.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/calista-winter.jpg" alt="Residenz Calista mit Blick auf den Wilden Kaiser" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Award Winner 2024</span>
@@ -382,7 +430,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac53610.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-28.jpg&quot;, &quot;Grundriss Top 01.1.A&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="101.57" data-neu="2026-10-19" data-beliebt="1" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac53610.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-28.jpg&quot;, &quot;Grundriss Top 01.1.A&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="101.57" data-zimmer="4" data-neu="2026-10-19" data-beliebt="1" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-25-960.jpg 960w, assets/img/staina-25.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-25.jpg" alt="Haus 01 – Ansicht" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -409,7 +457,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac537ab.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-29.jpg&quot;, &quot;Grundriss Top 01.2.A&quot;], [&quot;assets/img/staina-21.jpg&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="39.49" data-neu="2026-10-19" data-beliebt="2" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac537ab.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-29.jpg&quot;, &quot;Grundriss Top 01.2.A&quot;], [&quot;assets/img/staina-21.jpg&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="39.49" data-zimmer="2" data-neu="2026-10-19" data-beliebt="2" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-27-960.jpg 960w, assets/img/staina-27.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-27.jpg" alt="Haus 01 – Ansicht von Süden" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -436,7 +484,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac5386b.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-30.jpg&quot;, &quot;Grundriss Top 01.2.B&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="61.95" data-neu="2026-10-19" data-beliebt="3" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac5386b.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-30.jpg&quot;, &quot;Grundriss Top 01.2.B&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="61.95" data-zimmer="3" data-neu="2026-10-19" data-beliebt="3" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-25-960.jpg 960w, assets/img/staina-25.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-25.jpg" alt="Haus 01 – Ansicht" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -463,7 +511,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac538f3.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-31.jpg&quot;, &quot;Grundriss Top 01.3.A&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="33.6" data-neu="2026-10-19" data-beliebt="4" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac538f3.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-31.jpg&quot;, &quot;Grundriss Top 01.3.A&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="33.6" data-zimmer="2" data-neu="2026-10-19" data-beliebt="4" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-27-960.jpg 960w, assets/img/staina-27.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-27.jpg" alt="Haus 01 – Ansicht von Süden" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -490,7 +538,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac539a6.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-32.jpg&quot;, &quot;Grundriss Top 01.3.B&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="43.66" data-neu="2026-10-18" data-beliebt="5" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac539a6.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-32.jpg&quot;, &quot;Grundriss Top 01.3.B&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="43.66" data-zimmer="2" data-neu="2026-10-18" data-beliebt="5" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-26-960.jpg 960w, assets/img/staina-26.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-26.jpg" alt="Haus 01 – Ansicht von der Zufahrt" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -517,7 +565,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-mp-6ac53b40.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-33.jpg&quot;, &quot;Grundriss Top 01.4.A&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="60.4" data-neu="2026-10-18" data-beliebt="6" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-mp-6ac53b40.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-33.jpg&quot;, &quot;Grundriss Top 01.4.A&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="60.4" data-zimmer="2" data-neu="2026-10-18" data-beliebt="6" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-25-960.jpg 960w, assets/img/staina-25.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-25.jpg" alt="Haus 01 – Ansicht" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -544,7 +592,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-11.jpg&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6abfa7f6.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-15.jpg&quot;, &quot;Terrasse am Abend&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-17.jpg&quot;, &quot;Grundriss Top 06.1A&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="311000" data-flaeche="58" data-neu="2026-10-18" data-beliebt="7" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-11.jpg&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6abfa7f6.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-15.jpg&quot;, &quot;Terrasse am Abend&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-17.jpg&quot;, &quot;Grundriss Top 06.1A&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="311000" data-flaeche="58" data-zimmer="3" data-neu="2026-10-18" data-beliebt="7" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-11-960.jpg 960w, assets/img/staina-11.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-11.jpg" alt="Zufahrt mit Allee" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -571,7 +619,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-19.jpg&quot;, &quot;Haus 06 – Ansicht&quot;], [&quot;assets/img/staina-mp-6abfa8cd.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-20.jpg&quot;, &quot;Grundriss Top 06.2A&quot;], [&quot;assets/img/staina-21.jpg&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="308000" data-flaeche="58" data-neu="2026-10-18" data-beliebt="8" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-19.jpg&quot;, &quot;Haus 06 – Ansicht&quot;], [&quot;assets/img/staina-mp-6abfa8cd.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-20.jpg&quot;, &quot;Grundriss Top 06.2A&quot;], [&quot;assets/img/staina-21.jpg&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="308000" data-flaeche="58" data-zimmer="3" data-neu="2026-10-18" data-beliebt="8" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-12-960.jpg 960w, assets/img/staina-12.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-12.jpg" alt="Haus 06 – Visualisierung" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -598,7 +646,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-19.jpg&quot;, &quot;Haus 06 – Ansicht&quot;], [&quot;assets/img/staina-mp-6abfa961.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-24.jpg&quot;, &quot;Grundriss Top 06.3A&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="339000" data-flaeche="58" data-neu="2026-10-17" data-beliebt="9" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-19.jpg&quot;, &quot;Haus 06 – Ansicht&quot;], [&quot;assets/img/staina-mp-6abfa961.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-24.jpg&quot;, &quot;Grundriss Top 06.3A&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="339000" data-flaeche="58" data-zimmer="3" data-neu="2026-10-17" data-beliebt="9" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-19-960.jpg 960w, assets/img/staina-19.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-19.jpg" alt="Haus 06 – Ansicht" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -625,7 +673,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-21.jpg&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-mp-6abfaa68.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-20.jpg&quot;, &quot;Grundriss Top 06.4A&quot;], [&quot;assets/img/staina-19.jpg&quot;, &quot;Haus 06 – Ansicht&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="292000" data-flaeche="43" data-neu="2026-10-17" data-beliebt="10" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-12.jpg&quot;, &quot;Haus 06 – Visualisierung&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-21.jpg&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-mp-6abfaa68.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-20.jpg&quot;, &quot;Grundriss Top 06.4A&quot;], [&quot;assets/img/staina-19.jpg&quot;, &quot;Haus 06 – Ansicht&quot;], [&quot;assets/img/staina-16.jpg&quot;, &quot;Materialkonzept&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="292000" data-flaeche="43" data-zimmer="2" data-neu="2026-10-17" data-beliebt="10" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-12-960.jpg 960w, assets/img/staina-12.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-12.jpg" alt="Haus 06 – Visualisierung" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -652,7 +700,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </a>
 </article>
 
-<article class="card" data-bilder="[[&quot;assets/img/staina-00.jpg&quot;, &quot;Resort Staina – Außenansicht&quot;], [&quot;assets/img/staina-02.jpg&quot;, &quot;Wohnhaus am Südhang&quot;], [&quot;assets/img/staina-03.jpg&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-04.jpg&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-05.jpg&quot;, &quot;Balkon mit Bergpanorama&quot;], [&quot;assets/img/staina-06.jpg&quot;, &quot;Schlafzimmer mit Panoramafenster&quot;], [&quot;assets/img/staina-07.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-08.jpg&quot;, &quot;Resort Staina über Steinach&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="430000" data-flaeche="86" data-neu="2026-10-17" data-beliebt="11" style="background: #FFFFFF; display: flex; flex-direction: column">
+<article class="card" data-bilder="[[&quot;assets/img/staina-00.jpg&quot;, &quot;Resort Staina – Außenansicht&quot;], [&quot;assets/img/staina-02.jpg&quot;, &quot;Wohnhaus am Südhang&quot;], [&quot;assets/img/staina-03.jpg&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-04.jpg&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-05.jpg&quot;, &quot;Balkon mit Bergpanorama&quot;], [&quot;assets/img/staina-06.jpg&quot;, &quot;Schlafzimmer mit Panoramafenster&quot;], [&quot;assets/img/staina-07.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-08.jpg&quot;, &quot;Resort Staina über Steinach&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="430000" data-flaeche="86" data-zimmer="3.5" data-neu="2026-10-17" data-beliebt="11" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
 <img srcset="assets/img/staina-00-960.jpg 960w, assets/img/staina-00.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-00.jpg" alt="Resort Staina – Außenansicht" style="width: 100%; height: 100%; object-fit: cover; display: block">
 <span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
@@ -970,15 +1018,14 @@ function setImg(img, src){
   // Filter, Standort, Sortierung
   var cards = Array.prototype.slice.call(document.querySelectorAll('article.card'));
   var grid = cards.length ? cards[0].parentNode : null;
-  var st = { kat: 'alle', standort: 'alle', sort: 'beliebt' };
+  var st = { kat: 'alle', standort: 'alle', sort: 'beliebt', dir: { preis: 1, flaeche: -1 }, zmin: 1 };
   var tabs = document.querySelectorAll('[data-on="t.pick"]');
   var map = {'Alle':'alle','Kauf':'kauf','Miete':'miete'};
+  function pv(c){ return +c.dataset.preis || 0; }
   var cmp = {
     beliebt: function(a,b){ return a.dataset.beliebt - b.dataset.beliebt; },
-    neu: function(a,b){ return a.dataset.neu < b.dataset.neu ? 1 : -1; },
-    'preis-auf': function(a,b){ var x = +a.dataset.preis || 1e12, y = +b.dataset.preis || 1e12; return x - y; },
-    'preis-ab': function(a,b){ return (+b.dataset.preis || -1) - (+a.dataset.preis || -1); },
-    flaeche: function(a,b){ return b.dataset.flaeche - a.dataset.flaeche; }
+    preis: function(a,b){ var x = pv(a), y = pv(b); if(!x || !y) return (x ? 0 : 1) - (y ? 0 : 1); return (x - y) * st.dir.preis; },
+    flaeche: function(a,b){ return (a.dataset.flaeche - b.dataset.flaeche) * st.dir.flaeche; }
   };
   function chip(b, on){ b.setAttribute('aria-pressed', on); b.style.borderColor = on ? '#0C0C0C' : '#C9C6C0'; b.style.background = on ? '#0C0C0C' : 'transparent'; b.style.color = on ? '#F3F2EF' : '#4A4946'; }
   function apply(){
@@ -986,18 +1033,20 @@ function setImg(img, src){
     var n = 0;
     cards.slice().sort(cmp[st.sort]).forEach(function(c){
       grid.appendChild(c);
-      var show = (st.kat === 'alle' || c.getAttribute('data-kat') === st.kat) && (st.standort === 'alle' || c.dataset.standort === st.standort);
+      var show = (st.kat === 'alle' || c.getAttribute('data-kat') === st.kat) && (st.standort === 'alle' || c.dataset.standort === st.standort) && (+c.dataset.zimmer || 0) >= st.zmin;
       c.hidden = !show; if(show) n++;
     });
     tabs.forEach(function(b){ var on = map[b.textContent.trim()] === st.kat; b.setAttribute('aria-selected', on); b.style.borderBottomColor = on ? '#0C0C0C' : 'transparent'; b.style.color = on ? '#0C0C0C' : '#6E6C68'; });
     document.querySelectorAll('[data-on="s.pick"]').forEach(function(b){ chip(b, b.dataset.key === st.standort); });
-    document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ chip(b, b.dataset.sort === st.sort); });
+    document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ var on = b.dataset.sort === st.sort; chip(b, on); var d = b.querySelector('.dir'); if(d && b.dataset.sort !== 'beliebt') d.textContent = on ? (st.dir[b.dataset.sort] > 0 ? '↑' : '↓') : '↕'; });
+    var zv = document.querySelector('.zval'), zr = document.querySelector('.zrange'); if(zv){ var t = st.zmin <= 1 ? 'Alle' : 'ab ' + st.zmin; zv.textContent = t; zr.setAttribute('aria-valuetext', st.zmin <= 1 ? 'alle' : 'ab ' + st.zmin + ' Zimmer'); }
     var cnt = document.querySelector('.fcount'); if(cnt) cnt.textContent = n + (n === 1 ? ' Objekt' : ' Objekte');
     var e = document.querySelector('.sc-if.empty'); if(e) e.hidden = n > 0;
   }
   tabs.forEach(function(b){ b.addEventListener('click', function(){ st.kat = map[b.textContent.trim()]; apply(); }); });
   document.querySelectorAll('[data-on="s.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.standort = b.dataset.key; apply(); }); });
-  document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.sort = b.dataset.sort; apply(); }); });
+  document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ b.addEventListener('click', function(){ var k = b.dataset.sort; if(st.sort === k && k !== 'beliebt') st.dir[k] *= -1; st.sort = k; apply(); }); });
+  var zr = document.querySelector('.zrange'); if(zr) zr.addEventListener('input', function(){ st.zmin = +zr.value; apply(); });
   document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('a[data-standort]'); if(a){ st.standort = a.getAttribute('data-standort'); apply(); } });
   var hm = location.hash.match(/^#standort-([a-z-]+)$/);
   if(hm){ st.standort = hm[1]; apply(); window.addEventListener('load', function(){ window.scrollTo(0,0); setTimeout(function(){ if(window.rnvScrollTo) window.rnvScrollTo('immobilien'); }, 250); }); }
