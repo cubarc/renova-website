@@ -330,8 +330,6 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 
 <button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Kauf</button>
 
-<button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Neubau</button>
-
 <button class="tab" role="tab" type="button" aria-selected="false" data-on="t.pick" style="background: none; border: none; border-bottom: 1px solid transparent; padding: 12px 0 8px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: #6E6C68; min-height: 44px; cursor: pointer">Miete</button>
 
 </div>
@@ -675,7 +673,7 @@ function setImg(img, src){
   var grid = cards.length ? cards[0].parentNode : null;
   var st = { kat: 'alle', standort: 'alle', sort: 'beliebt' };
   var tabs = document.querySelectorAll('[data-on="t.pick"]');
-  var map = {'Alle':'alle','Kauf':'kauf','Neubau':'neubau','Miete':'miete'};
+  var map = {'Alle':'alle','Kauf':'kauf','Miete':'miete'};
   var cmp = {
     beliebt: function(a,b){ return a.dataset.beliebt - b.dataset.beliebt; },
     neu: function(a,b){ return a.dataset.neu < b.dataset.neu ? 1 : -1; },
