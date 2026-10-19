@@ -364,7 +364,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <script>
 function setImg(img, src){
   var m = src.match(/assets\/img\/([a-z0-9-]+)\.jpg$/);
-  if (m) { var n = m[1]; img.srcset = 'assets/img/' + n + '-960.jpg 960w, assets/img/' + n + '.jpg 1920w' + (n.indexOf('staina') === 0 || n.indexOf('calista') === 0 || n.indexOf('kontakt') === 0 || n === 'hero-chalet' ? '' : ', assets/img/' + n + '-3200.jpg 3200w'); }
+  if (m) { var n = m[1]; img.srcset = 'assets/img/' + n + '-960.jpg 960w, assets/img/' + n + '.jpg 1920w' + (n.indexOf('staina') === 0 || n.indexOf('calista') === 0 || n.indexOf('kontakt') === 0 || n.indexOf('ref-') === 0 || n === 'hero-chalet' ? '' : ', assets/img/' + n + '-3200.jpg 3200w'); }
   img.src = src;
 }
 
