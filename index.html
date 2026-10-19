@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RENOVA Alpenimmobilien Tirol</title>
+<title>RENOVA Immobilien Tirol</title>
 <meta name="description" content="RENOVA Immobilien Tirol GmbH – Hausverwaltung, Bauträger und Immobilienmakler aus Innsbruck. Immobilien verstehen. Werte erhalten.">
-<meta property="og:title" content="RENOVA Alpenimmobilien Tirol">
+<meta property="og:title" content="RENOVA Immobilien Tirol">
 <meta property="og:description" content="RENOVA Immobilien Tirol GmbH – Hausverwaltung, Bauträger und Immobilienmakler aus Innsbruck. Immobilien verstehen. Werte erhalten.">
-<meta property="og:image" content="assets/img/hero-chalet.jpg">
+<meta property="og:image" content="assets/img/staina-00.jpg">
 <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/icons/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
@@ -218,7 +218,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <a href="#top" aria-label="RENOVA – nach oben" style="display: block; line-height: 0"><img src="assets/logo/renova-wortmarke-negativ.svg" alt="RENOVA" class="hlogo" style="display: block; height: 18px; width: auto"></a>
 <div class="navlinks" style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400">
 <div class="ddw"><a class="nl" href="#immobilien" data-standort="alle">Immobilien<svg class="car" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 L5 7 L8.5 3.5" fill="none" stroke="currentColor" stroke-width="1"></path></svg></a>
-<div class="dd"><a class="ddall" href="#immobilien" data-standort="alle">Alle Immobilien</a><a href="#immobilien" data-standort="steinach">Steinach am Brenner</a></div></div>
+<div class="dd"><a class="ddall" href="#immobilien" data-standort="alle">Alle Immobilien</a><a href="#immobilien" data-standort="steinach">Steinach am Brenner</a><a href="#immobilien" data-standort="st-johann">St. Johann in Tirol</a></div></div>
 <a class="nl" href="#bautraeger">Bauträger</a>
 <a class="nl" href="#hausverwaltung">Hausverwaltung</a>
 <a class="nl" href="#unternehmen">Unternehmen</a>
@@ -230,7 +230,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div id="mmenu" class="mmenu">
 <div class="wrap" style="width: 100%; padding-top: 8px; padding-bottom: 40px">
 <a class="mm mm-p" href="#immobilien"><span class="mn">01</span>Immobilien</a>
-<div class="msub"><a href="#immobilien" data-standort="steinach">Steinach am Brenner</a></div>
+<div class="msub"><a href="#immobilien" data-standort="steinach">Steinach am Brenner</a><a href="#immobilien" data-standort="st-johann">St. Johann in Tirol</a></div>
 <a class="mm" href="#bautraeger"><span class="mn">02</span>Bauträger</a>
 <a class="mm" href="#hausverwaltung"><span class="mn">03</span>Hausverwaltung</a>
 <a class="mm" href="#unternehmen"><span class="mn">04</span>Unternehmen</a>
@@ -339,15 +339,42 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 
 <div class="fbar">
 <div class="fgrp" role="group" aria-label="Nach Standort filtern"><span class="flab">Standort</span>
-<button class="chip" type="button" data-key="alle" aria-pressed="true" data-on="s.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Alle</button><button class="chip" type="button" data-key="steinach" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Steinach am Brenner</button>
+<button class="chip" type="button" data-key="alle" aria-pressed="true" data-on="s.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Alle</button><button class="chip" type="button" data-key="st-johann" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">St. Johann in Tirol</button><button class="chip" type="button" data-key="steinach" aria-pressed="false" data-on="s.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Steinach am Brenner</button>
 </div>
 <div class="fgrp" role="group" aria-label="Sortieren"><span class="flab">Sortieren</span>
 <button class="chip" type="button" data-sort="beliebt" aria-label="Beliebt" aria-pressed="true" data-on="so.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Beliebt</button><button class="chip" type="button" data-sort="neu" aria-label="Neueste zuerst" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Neu</button><button class="chip" type="button" data-sort="preis-auf" aria-label="Preis aufsteigend" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis ↑</button><button class="chip" type="button" data-sort="preis-ab" aria-label="Preis absteigend" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis ↓</button><button class="chip" type="button" data-sort="flaeche" aria-label="Größte Wohnfläche zuerst" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Fläche</button>
 </div>
-<div class="fcount" aria-live="polite">11 Objekte</div>
+<div class="fcount" aria-live="polite">12 Objekte</div>
 </div>
 
 <div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 48px">
+
+<article class="card" data-bilder="[[&quot;assets/img/calista-winter.jpg&quot;, &quot;Residenz Calista mit Blick auf den Wilden Kaiser&quot;], [&quot;assets/img/calista-hero.jpg&quot;, &quot;Residenz Calista vor dem Wilden Kaiser&quot;], [&quot;assets/img/calista-garten.jpg&quot;, &quot;Garten und Terrasse mit Bergblick&quot;], [&quot;assets/img/calista-fassade.jpg&quot;, &quot;Gartenseite der Residenz Calista&quot;], [&quot;assets/img/calista-ost.jpg&quot;, &quot;Ansicht mit Kitzbüheler Horn&quot;], [&quot;assets/img/calista-eingang.jpg&quot;, &quot;Zugang und Eingang&quot;]]" data-kat="kauf" data-standort="st-johann" data-preis="1670000" data-flaeche="135" data-neu="2026-10-19" data-beliebt="0" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<img srcset="assets/img/calista-winter-960.jpg 960w, assets/img/calista-winter.jpg 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/calista-winter.jpg" alt="Residenz Calista mit Blick auf den Wilden Kaiser" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Award Winner 2024</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 6</span>
+</div>
+<a href="objekt-calista.html" aria-label="Objekt ansehen: Gartenresidenz · Residenz Calista, St. Johann in Tirol, € 1.670.000" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">St. Johann in Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Gartenresidenz · Residenz Calista</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Ausgezeichnet mit dem Real Estate &amp; Architecture Award 2024 – Gartenresidenz mit Blick auf das Kitzbüheler Horn.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">135 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">4</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 341 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">€ 1.670.000</div>
+<div style="font-size: 11px; color: #6E6C68">HWB B · fGEE A+</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
 
 <article class="card" data-bilder="[[&quot;assets/img/staina-25.jpg&quot;, &quot;Haus 01 – Ansicht&quot;], [&quot;assets/img/staina-13.jpg&quot;, &quot;Blick über Steinach und das Wipptal&quot;], [&quot;assets/img/staina-mp-6ac53610.jpg&quot;, &quot;Masterplan Resort Staina&quot;], [&quot;assets/img/staina-26.jpg&quot;, &quot;Haus 01 – Ansicht von der Zufahrt&quot;], [&quot;assets/img/staina-27.jpg&quot;, &quot;Haus 01 – Ansicht von Süden&quot;], [&quot;assets/img/staina-28.jpg&quot;, &quot;Grundriss Top 01.1.A&quot;], [&quot;assets/img/staina-23.jpg&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-22.jpg&quot;, &quot;Terrasse mit Bergblick&quot;], [&quot;assets/img/staina-18.jpg&quot;, &quot;Resort Staina – pure living&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="101.57" data-neu="2026-10-19" data-beliebt="1" style="background: #FFFFFF; display: flex; flex-direction: column">
 <div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
@@ -811,7 +838,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 
 <div class="split reveal" style="display: flex; gap: 60px; align-items: stretch; margin-top: 100px">
 <div class="zoom" style="flex: 1 1 0; min-width: 0; min-height: 420px; position: relative; background: #E6E4E0">
-<img srcset="assets/img/hero-chalet-960.jpg 960w, assets/img/hero-chalet.jpg 1920w" sizes="100vw" class="rf" src="assets/img/hero-chalet.jpg" alt="Wohnhaus im alpinen Stil mit Garten" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<img srcset="assets/img/calista-garten-960.jpg 960w, assets/img/calista-garten.jpg 1920w" sizes="100vw" class="rf" src="assets/img/calista-garten.jpg" alt="Wohnhaus im alpinen Stil mit Garten" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
 </div>
 <div style="flex: 1 1 0; min-width: 0; background: linear-gradient(155deg, #353535 0%, #1F1F1F 50%, #0E0E0E 100%); color: #E6E4E0; padding: 54px 52px; display: flex; flex-direction: column; justify-content: space-between; gap: 36px">
 <div>
@@ -847,7 +874,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <!-- FOOTER -->
 <footer id="kontakt" style="background: #0C0C0C; border-top: 1px solid #262626; padding: 60px 0 64px">
 <div class="wrap ftr" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px">
-<img src="assets/logo/renova-hauptlogo-negativ.svg" alt="RENOVA Alpenimmobilien Tirol GmbH" class="flogo" style="display: block; width: 260px; height: auto">
+<img src="assets/logo/renova-hauptlogo-negativ.svg" alt="RENOVA Immobilien Tirol GmbH" class="flogo" style="display: block; width: 260px; height: auto">
 <div style="display: flex; flex-wrap: wrap; gap: 56px; font-size: 13px; line-height: 1.9; color: #A3A09A">
 <address style="font-style: normal">RENOVA Immobilien Tirol GmbH<br>Ansprechpartner: Stefan Kern</address>
 <div><a href="tel:+436648443054" style="color: #A3A09A; text-decoration: none">+43 664 8443054</a><br><a href="mailto:info@renova-alpenimmobilien.at" style="color: #A3A09A; text-decoration: none">info@renova-alpenimmobilien.at</a></div>
@@ -860,7 +887,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <script>
 function setImg(img, src){
   var m = src.match(/assets\/img\/([a-z0-9-]+)\.jpg$/);
-  if (m) { var n = m[1]; img.srcset = 'assets/img/' + n + '-960.jpg 960w, assets/img/' + n + '.jpg 1920w' + (n === 'hero-chalet' || n.indexOf('staina') === 0 ? '' : ', assets/img/' + n + '-3200.jpg 3200w'); }
+  if (m) { var n = m[1]; img.srcset = 'assets/img/' + n + '-960.jpg 960w, assets/img/' + n + '.jpg 1920w' + (n.indexOf('staina') === 0 || n.indexOf('calista') === 0 || n === 'hero-chalet' ? '' : ', assets/img/' + n + '-3200.jpg 3200w'); }
   img.src = src;
 }
 
@@ -945,7 +972,7 @@ function setImg(img, src){
   document.querySelectorAll('[data-on="s.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.standort = b.dataset.key; apply(); }); });
   document.querySelectorAll('[data-on="so.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.sort = b.dataset.sort; apply(); }); });
   document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('a[data-standort]'); if(a){ st.standort = a.getAttribute('data-standort'); apply(); } });
-  var hm = location.hash.match(/^#standort-([a-z]+)$/);
+  var hm = location.hash.match(/^#standort-([a-z-]+)$/);
   if(hm){ st.standort = hm[1]; apply(); window.addEventListener('load', function(){ window.scrollTo(0,0); setTimeout(function(){ if(window.rnvScrollTo) window.rnvScrollTo('immobilien'); }, 250); }); }
 })();
 </script>
