@@ -411,15 +411,34 @@ function setImg(img, src){
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-  function smoothTo(id, push){
-    var el = document.getElementById(id); if(!el) return;
-    var off = id === 'top' ? 0 : 74;
-    var start = window.pageYOffset, target = Math.max(0, el.getBoundingClientRect().top + start - off);
-    if(push && history.replaceState) history.replaceState(null, '', '#' + id);
-    if(reduce){ window.scrollTo(0, target); return; }
-    var dur = Math.min(1600, Math.max(800, Math.abs(target-start)*.5)), t0 = null;
-    function f(ts){ if(t0===null) t0=ts; var p=Math.min(1,(ts-t0)/dur); window.scrollTo(0, start+(target-start)*ease(p)); if(p<1) requestAnimationFrame(f); }
+  // Ruhiges Scrollen: kurze Wege werden weich gescrollt. Bei langen Wegen blendet die Seite kurz ab,
+  // springt bis knapp vor das Ziel und gleitet die letzten Meter sanft hinein (kein nervöses Durchrasen).
+  var veil = null, busy = false;
+  function getVeil(){ if(!veil){ veil = document.createElement('div'); veil.setAttribute('aria-hidden','true');
+    veil.style.cssText = 'position:fixed;inset:0;background:#0C0C0C;opacity:0;pointer-events:none;z-index:40;transition:opacity .22s ease'; document.body.appendChild(veil); } return veil; }
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+  function tgt(el, id){ return Math.max(0, id === 'top' ? 0 : el.getBoundingClientRect().top + window.pageYOffset - 74); }
+  function glide(el, id, from, dur, done){
+    var t0 = null;
+    function f(ts){ if(t0 === null) t0 = ts; var p = Math.min(1, (ts - t0) / dur), to = tgt(el, id);
+      window.scrollTo(0, from + (to - from) * (p < 1 ? (from === to ? 1 : ease(p)) : 1)); if(p < 1) requestAnimationFrame(f); else if(done) done(); }
     requestAnimationFrame(f);
+  }
+  function smoothTo(id, push){
+    var el = document.getElementById(id); if(!el || busy) return;
+    if(push && history.replaceState) history.replaceState(null, '', '#' + id);
+    var start = window.pageYOffset, to = tgt(el, id), dist = to - start, vh = window.innerHeight;
+    if(reduce){ window.scrollTo(0, to); return; }
+    if(Math.abs(dist) <= vh * 1.3){ glide(el, id, start, Math.max(500, Math.min(900, Math.abs(dist) * .8))); return; }
+    busy = true; var v = getVeil(); v.style.opacity = '.92';
+    setTimeout(function(){
+      var near = tgt(el, id) - Math.sign(dist) * vh * .45;
+      window.scrollTo(0, near); v.style.opacity = '0';
+      var t0 = null, from = window.pageYOffset;
+      function f(ts){ if(t0 === null) t0 = ts; var p = Math.min(1, (ts - t0) / 750), to2 = tgt(el, id);
+        window.scrollTo(0, from + (to2 - from) * easeOut(p)); if(p < 1) requestAnimationFrame(f); else busy = false; }
+      requestAnimationFrame(f);
+    }, 230);
   }
   window.rnvScrollTo = smoothTo;
   document.addEventListener('click', function(e){
