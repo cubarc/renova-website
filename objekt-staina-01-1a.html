@@ -183,7 +183,9 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
  .facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  .thumbs{grid-template-columns:repeat(3,minmax(0,1fr))!important}
  .htitle{font-size:44px!important}
- .ftr{flex-direction:column!important;align-items:flex-start!important}
+ .ftr{flex-direction:column!important;align-items:center!important;text-align:center;gap:36px!important}
+ .ftr>div{flex-direction:column!important;align-items:center;gap:22px!important}
+ footer>div.wrap:not(.ftr){text-align:center}
 }
 @media (prefers-reduced-motion:reduce){.in1,.in2,.in3,.heroimg,.reveal{animation:none}.stage:hover img,.thumb:hover img{transform:none}}
 
