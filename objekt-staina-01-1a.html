@@ -213,6 +213,50 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .lage-dl dt{color:#8A8782}.lage-dl dd{margin:0;color:#F3F2EF}
 @media (max-width:900px){.lage-grid{grid-template-columns:minmax(0,1fr);gap:40px}.tmap .mk .lbl{font-size:22px}.tmap .ibk text{font-size:18px}}
 @media (prefers-reduced-motion:reduce){.tmap.anim .ol{stroke-dashoffset:0}.tmap.anim .mk{opacity:1}.tmap.anim.on .ol,.tmap.anim.on .mk,.tmap.anim.on .p1,.tmap.anim.on .p2{animation:none}}
+
+.os{margin:56px 0 0}
+.os-stage{position:relative;aspect-ratio:15/16;overflow:hidden;background:#0C0C0C;cursor:zoom-in;outline:none}
+.os-stage:focus-visible{box-shadow:0 0 0 1px #0C0C0C}
+.os-base,.os-slat img{position:absolute;top:0;height:100%;object-fit:cover;display:block}
+.os-base{left:0;width:100%;top:-1px;height:calc(100% + 2px);transform-origin:60% 50%;transition:filter 1.2s ease,transform 1.2s cubic-bezier(.6,0,.2,1)}
+.os-base.kb{animation:oskb 9s linear forwards}
+.os-stage.plan,.os-slat.plan{background:#FFFFFF}
+.os-stage .plan,.os-slat.plan img{object-fit:contain}
+.os-base.plan{animation:none}
+.os-stage.go .os-base{filter:brightness(.55) saturate(.8);transform:scale(1.04)}
+.os-next{position:absolute;inset:0;pointer-events:none}
+.os-slat{position:absolute;top:0;bottom:0;overflow:hidden;clip-path:inset(0 0 100% 0);background:#0C0C0C;animation:osin 1s cubic-bezier(.75,0,.2,1) forwards}
+.os-slat img{transform:translateY(-6%) scale(1.06);animation:ospar 1.4s cubic-bezier(.3,0,.1,1) forwards}
+.os-slat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(243,242,239,.0) 60%,rgba(243,242,239,.35) 100%);animation:osglint 1s ease forwards}
+@keyframes osin{to{clip-path:inset(0 0 0 0)}}
+@keyframes ospar{to{transform:none}}
+@keyframes osglint{0%{opacity:1}100%{opacity:0}}
+@keyframes oskb{from{transform:scale(1)}to{transform:scale(1.07)}}
+.os-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid rgba(243,242,239,.55);background:rgba(12,12,12,.35);color:#F3F2EF;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .35s ease,background .35s ease;z-index:3}
+.os-prev{left:18px}.os-next-btn{right:18px}
+.os-stage:hover .os-btn,.os-btn:focus-visible{opacity:1}
+.os-btn:hover{background:rgba(12,12,12,.7)}
+@media (hover:none){.os-btn{opacity:1}}
+.os-bar{display:flex;gap:6px;margin-top:18px}
+.os-seg{flex:1;height:14px;padding:6px 0;border:0;background:none;cursor:pointer;position:relative}
+.os-seg::before,.os-seg i{content:"";position:absolute;left:0;top:6px;height:1px;width:100%;background:#D3D0CA}
+.os-seg i{width:0;background:#0C0C0C}
+.os-seg.done i{width:100%}
+.os-seg.run i{animation:osfill var(--d) linear forwards}
+.os.paused .os-seg.run i{animation-play-state:paused}
+@keyframes osfill{to{width:100%}}
+.os-cap{display:flex;justify-content:space-between;gap:20px;margin-top:10px;font-size:13px;color:#6E6C68}
+.os-cnt{letter-spacing:.24em;font-size:11px;white-space:nowrap}
+.oslb{position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.985);display:none;flex-direction:column}
+.oslb.open{display:flex}
+.oslb-top{display:flex;justify-content:flex-end;padding:22px clamp(20px,5vw,40px)}
+.oslb button{background:none;border:1px solid rgba(243,242,239,.35);color:#F3F2EF;width:46px;height:46px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.oslb-stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;padding:0 90px 40px;min-height:0}
+.oslb-stage img{max-width:100%;max-height:100%;object-fit:contain}
+.oslb-stage .p{position:absolute;left:clamp(14px,3vw,30px);top:50%;transform:translateY(-50%)}
+.oslb-stage .n{position:absolute;right:clamp(14px,3vw,30px);top:50%;transform:translateY(-50%)}
+@media (max-width:900px){.os{margin-top:40px}.os-stage{aspect-ratio:4/3}.oslb-stage{padding:0 12px 80px}.oslb-stage .p,.oslb-stage .n{top:auto;bottom:16px;transform:none}}
+@media (prefers-reduced-motion:reduce){.os-slat,.os-slat img,.os-slat::after,.os-base.kb{animation:none!important;clip-path:none}.os-stage.go .os-base{filter:none;transform:none}}
 .kavatar{display:block;width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:62% 30%;margin-top:18px;border:1px solid #3A3A3A}
 </style>
 <meta name="author" content="archivisu, Innsbruck, www.archivisu.at"><meta name="designer" content="archivisu, Webdesign, Innsbruck"><link rel="author" href="humans.txt"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "RENOVA Immobilien Tirol", "inLanguage": "de-AT", "publisher": {"@type": "Organization", "name": "RENOVA Immobilien Tirol GmbH", "email": "info@renovatirol.at"}, "creator": {"@type": "Organization", "name": "archivisu", "url": "https://www.archivisu.at", "description": "Webdesign, Innsbruck", "address": {"@type": "PostalAddress", "streetAddress": "Maria-Theresien-Straße 18", "postalCode": "6020", "addressLocality": "Innsbruck", "addressCountry": "AT"}}}</script></head>
@@ -286,7 +330,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 <div class="reveal" style="flex: 1 1 0; min-width: 0">
 <div style="display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #6E6C68; font-weight: 400"><span style="display: block; width: 38px; height: 1px; background: #6E6C68"></span>Das Objekt</div>
 <h2 style="margin: 26px 0 0; font-weight: 200; font-size: 42px; line-height: 1.15; color: #0C0C0C">Freiraum für das Leben.<br><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.12em; color: #6E6C68">Im Resort Staina.</span></h2>
-<div style="margin-top: 40px; display: flex; flex-direction: column; gap: 22px; font-size: 16px; line-height: 1.85; color: #3A3936; max-width: 640px"><p style="margin: 0">Vier Zimmer auf gut 100 m², zwei Terrassen und ein eigener Gartenanteil. Top 1.A ist für alle gemacht, die Platz brauchen, für Familie, Gäste und ein Leben, das sich gern nach draußen verlagert.</p><p style="margin: 0">Das Resort Staina entsteht am sonnigen Südhang von Steinach am Brenner, mit moderner Architektur, viel Grün und weitem Blick über das Wipptal. Eine baumgesäumte Zufahrt, kleine Sitznischen zum Verweilen und eine überschaubare Wohnanlage schaffen ein ruhiges, privates Umfeld.</p><p style="margin: 0">Fußbodenheizung mit Luftwärmepumpe und Stellplätze in der Tiefgarage gehören zur Ausstattung; ausgewählte Wohnungen sind wohnbaugefördert. Fertigstellung 2027, Bezug ab 2028. Individuelle Anpassungen des Grundrisses sind auf Anfrage möglich.</p></div>
+<div style="margin-top: 40px; display: flex; flex-direction: column; gap: 22px; font-size: 16px; line-height: 1.85; color: #3A3936; max-width: 640px"><p style="margin: 0">Vier Zimmer auf gut 100 m², zwei Terrassen und ein eigener Gartenanteil. Top 1.A ist für alle gemacht, die Platz brauchen, für Familie, Gäste und ein Leben, das sich gern nach draußen verlagert.</p><p style="margin: 0">Das Resort Staina entsteht am sonnigen Südhang von Steinach am Brenner, mit moderner Architektur, viel Grün und weitem Blick über das Wipptal. Eine baumgesäumte Zufahrt, kleine Sitznischen zum Verweilen und eine überschaubare Wohnanlage schaffen ein ruhiges, privates Umfeld.</p><p style="margin: 0">Fußbodenheizung mit Luftwärmepumpe und Stellplätze in der Tiefgarage gehören zur Ausstattung; ausgewählte Wohnungen sind wohnbaugefördert. Fertigstellung 2027, Bezug ab 2028. Individuelle Anpassungen des Grundrisses sind auf Anfrage möglich.</p></div><figure class="os reveal" aria-roledescription="Bildergalerie" aria-label="Bilder zum Objekt"><div class="os-stage" tabindex="0" aria-label="Bild im Vollbild öffnen" role="button"><img srcset="assets/img/staina-25-960.jpg?v=e70ced38 960w, assets/img/staina-25.jpg?v=5e77832e 1920w" sizes="(max-width: 1240px) 100vw, 1200px" class="os-base" src="assets/img/staina-25.jpg?v=5e77832e" alt="Haus 01, Ansicht"><div class="os-next"></div><button class="os-btn os-prev" type="button" aria-label="Vorheriges Bild"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button><button class="os-btn os-next-btn" type="button" aria-label="Nächstes Bild"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button></div><div class="os-bar"><button class="os-seg" type="button" aria-label="Bild 1 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 2 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 3 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 4 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 5 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 6 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 7 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 8 zeigen"><i></i></button><button class="os-seg" type="button" aria-label="Bild 9 zeigen"><i></i></button></div><figcaption class="os-cap"><span class="os-alt">Haus 01, Ansicht</span><span class="os-cnt">01 / 09</span></figcaption></figure>
 </div>
 
 <aside id="anfrage" class="reveal" style="flex: 0 0 380px; max-width: 100%; display: flex; flex-direction: column; gap: 24px">
@@ -338,43 +382,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </div>
 </section>
 
-<!-- GALERIE -->
-<section aria-label="Bildergalerie" style="background: #F3F2EF; padding: 0 0 120px">
-<div class="wrap reveal">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 20px; border-top: 1px solid #D6D4CF; padding-top: 60px">
-<h2 style="margin: 0; font-weight: 200; font-size: 34px; color: #0C0C0C">Impressionen</h2>
-<div class="cnt" style="font-size: 12px; letter-spacing: 0.24em; color: #6E6C68">1 / 9</div>
-</div>
-<div class="stage" style="margin-top: 32px; aspect-ratio: 16 / 9; background: #E6E4E0">
-<img srcset="assets/img/staina-25-960.jpg?v=e70ced38 960w, assets/img/staina-25.jpg?v=5e77832e 1920w" sizes="(max-width: 1240px) 100vw, 1200px" class="rf" src="assets/img/staina-25.jpg?v=5e77832e" alt="Haus 01, Ansicht" style="width: 100%; height: 100%; object-fit: contain; display: block">
-<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="prev" style="left: 20px"><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="next" style="right: 20px"><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-</div>
-<p class="cap" style="margin: 16px 0 0; font-size: 13px; color: #6E6C68">Haus 01, Ansicht</p>
-<div class="thumbs" style="margin-top: 24px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px">
-
-<button class="thumb" type="button" aria-label="Bild 1 zeigen: Haus 01, Ansicht" aria-pressed="true" data-on="t.pick" style="outline: 1px solid #0C0C0C; outline-offset: 4px; opacity: 1"><img srcset="assets/img/staina-25-960.jpg?v=e70ced38 960w, assets/img/staina-25.jpg?v=5e77832e 1920w" sizes="240px" class="rf" src="assets/img/staina-25.jpg?v=5e77832e" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 2 zeigen: Blick über Steinach und das Wipptal" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-13-960.jpg?v=ad145b88 960w, assets/img/staina-13.jpg?v=97062324 1920w" sizes="240px" class="rf" src="assets/img/staina-13.jpg?v=97062324" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 3 zeigen: Masterplan Resort Staina" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-mp-6ac53610-960.jpg?v=60812c0b 960w, assets/img/staina-mp-6ac53610.jpg?v=6986a09f 1920w" sizes="240px" class="rf" src="assets/img/staina-mp-6ac53610.jpg?v=6986a09f" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 4 zeigen: Haus 01, Ansicht von der Zufahrt" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-26-960.jpg?v=297b09f8 960w, assets/img/staina-26.jpg?v=8176a7a9 1920w" sizes="240px" class="rf" src="assets/img/staina-26.jpg?v=8176a7a9" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 5 zeigen: Haus 01, Ansicht von Süden" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-27-960.jpg?v=629544ce 960w, assets/img/staina-27.jpg?v=faa3816f 1920w" sizes="240px" class="rf" src="assets/img/staina-27.jpg?v=faa3816f" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 6 zeigen: Grundriss Top 01.1.A" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-28-960.jpg?v=fda53419 960w, assets/img/staina-28.jpg?v=5c02752e 1920w" sizes="240px" class="rf" src="assets/img/staina-28.jpg?v=5c02752e" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 7 zeigen: Wohnbereich mit Kamin" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-23-960.jpg?v=bbcb6f9a 960w, assets/img/staina-23.jpg?v=f3fa26a3 1920w" sizes="240px" class="rf" src="assets/img/staina-23.jpg?v=f3fa26a3" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 8 zeigen: Terrasse mit Bergblick" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-22-960.jpg?v=43f5705b 960w, assets/img/staina-22.jpg?v=924efdb9 1920w" sizes="240px" class="rf" src="assets/img/staina-22.jpg?v=924efdb9" alt=""></button>
-
-<button class="thumb" type="button" aria-label="Bild 9 zeigen: Resort Staina, pure living" aria-pressed="false" data-on="t.pick" style="outline: none; outline-offset: 4px; opacity: 0.6"><img srcset="assets/img/staina-18-960.jpg?v=7a1885ec 960w, assets/img/staina-18.jpg?v=f3ecb9f4 1920w" sizes="240px" class="rf" src="assets/img/staina-18.jpg?v=f3ecb9f4" alt=""></button>
-
-</div>
-</div>
-</section>
-
+<div class="oslb" id="oslb" role="dialog" aria-modal="true" aria-label="Bild im Vollbild" hidden><div class="oslb-top"><button type="button" class="x" aria-label="Schließen"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2 L14 14 M14 2 L2 14" stroke="currentColor" stroke-width="1.2"/></svg></button></div><div class="oslb-stage"><img alt=""><button type="button" class="p" aria-label="Vorheriges Bild"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button><button type="button" class="n" aria-label="Nächstes Bild"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button></div></div>
 <!-- ZURÜCK -->
 <section style="background: radial-gradient(ellipse at 50% 30%, #363636 0%, #1A1A1A 45%, #0A0A0A 100%); padding: 90px 0; text-align: center">
 <div class="wrap reveal" style="display: flex; flex-direction: column; align-items: center; gap: 30px">
@@ -441,17 +449,69 @@ function setImg(img, src){
 })();
 
 (function(){
-  var bilder = JSON.parse(document.getElementById('bilder').textContent), i = 0;
-  var stage = document.querySelector('.stage img'), cap = document.querySelector('.cap'), cnt = document.querySelector('.cnt');
-  var thumbs = document.querySelectorAll('[data-on="t.pick"]');
-  function show(n){
-    i = (n + bilder.length) % bilder.length;
-    setImg(stage, bilder[i].src); stage.alt = bilder[i].alt; cap.textContent = bilder[i].alt; cnt.textContent = (i+1) + ' / ' + bilder.length;
-    thumbs.forEach(function(t,k){ t.setAttribute('aria-pressed', k===i); t.style.outline = k===i ? '1px solid #0C0C0C' : 'none'; t.style.opacity = k===i ? '1' : '0.6'; });
+  var fig = document.querySelector('.os'); if(!fig) return;
+  var B = JSON.parse(document.getElementById('bilder').textContent);
+  var stage = fig.querySelector('.os-stage'), base = fig.querySelector('.os-base'), nx = fig.querySelector('.os-next');
+  var segs = fig.querySelectorAll('.os-seg'), alt = fig.querySelector('.os-alt'), cnt = fig.querySelector('.os-cnt');
+  var N = 7, DUR = 5600, cur = 0, busy = false, timer = null, hover = false, seen = false;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function isPlan(b){ return /grundriss|masterplan/i.test(b.alt); }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function mk(b){ var im = new Image(); im.alt = ''; setImg(im, b.src); return im; }
+  B.forEach(function(b){ var im = new Image(); setImg(im, b.src); });   // vorladen
+  function bar(){
+    segs.forEach(function(s, k){ s.classList.remove('run'); s.classList.toggle('done', k < cur); });
+    var s = segs[cur]; void s.offsetWidth; if(!still){ s.style.setProperty('--d', DUR + 'ms'); s.classList.add('run'); }
   }
-  document.querySelector('[data-on="prev"]').addEventListener('click', function(){ show(i-1); });
-  document.querySelector('[data-on="next"]').addEventListener('click', function(){ show(i+1); });
-  thumbs.forEach(function(t,k){ t.addEventListener('click', function(){ show(k); }); });
+  function label(){ alt.textContent = B[cur].alt; cnt.textContent = pad(cur + 1) + ' / ' + pad(B.length); }
+  function setBase(b){
+    setImg(base, b.src); base.alt = b.alt;
+    var p = isPlan(b); stage.classList.toggle('plan', p); base.classList.toggle('plan', p);
+    base.classList.remove('kb'); void base.offsetWidth; if(!still && !p) base.classList.add('kb');
+  }
+  function go(n, back){
+    if(busy) return; n = (n + B.length) % B.length; if(n === cur) return;
+    var b = B[n]; cur = n; label(); bar(); schedule();
+    if(still){ setBase(b); return; }
+    busy = true; stage.classList.add('go'); nx.innerHTML = '';
+    var plan = isPlan(b);
+    for(var k = 0; k < N; k++){
+      var s = document.createElement('div'); s.className = 'os-slat' + (plan ? ' plan' : '');
+      var w = 100 / N, idx = back ? N - 1 - k : k;
+      s.style.left = (idx * w) + '%'; s.style.width = 'calc(' + w + '% + 1px)';
+      s.style.animationDelay = (k * 75) + 'ms';
+      var im = mk(b); im.style.left = (-idx * 100) + '%'; im.style.width = (N * 100) + '%'; im.style.animationDelay = (k * 75) + 'ms';
+      s.appendChild(im); nx.appendChild(s);
+    }
+    setTimeout(function(){
+      base.style.transition = 'none'; stage.classList.remove('go'); setBase(b); void base.offsetWidth; base.style.transition = '';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ nx.innerHTML = ''; busy = false; }); });
+    }, 1000 + (N - 1) * 75 + 120);
+  }
+  function schedule(){ clearTimeout(timer); if(still || hover || !seen || document.hidden) return; timer = setTimeout(function(){ go(cur + 1); }, DUR); }
+  function pause(p){ hover = p; fig.classList.toggle('paused', p); if(p) clearTimeout(timer); else { bar(); schedule(); } }
+  fig.querySelector('.os-prev').addEventListener('click', function(e){ e.stopPropagation(); go(cur - 1, true); });
+  fig.querySelector('.os-next-btn').addEventListener('click', function(e){ e.stopPropagation(); go(cur + 1); });
+  segs.forEach(function(s, k){ s.addEventListener('click', function(){ go(k, k < cur); }); });
+  stage.addEventListener('mouseenter', function(){ pause(true); }); stage.addEventListener('mouseleave', function(){ pause(false); });
+  stage.addEventListener('keydown', function(e){ if(e.key === 'ArrowRight') go(cur + 1); if(e.key === 'ArrowLeft') go(cur - 1, true); if(e.key === 'Enter') openLb(); });
+  var x0 = null;
+  stage.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function(e){ if(x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if(Math.abs(dx) > 40){ dx < 0 ? go(cur + 1) : go(cur - 1, true); } else openLb(); x0 = null; });
+  stage.addEventListener('click', function(e){ if(e.target.closest('.os-btn')) return; if(!('ontouchstart' in window)) openLb(); });
+  document.addEventListener('visibilitychange', schedule);
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ seen = e.isIntersecting; if(seen){ bar(); schedule(); } else clearTimeout(timer); }); }, { threshold: .4 }).observe(stage); } else { seen = true; }
+  setBase(B[0]); label();
+  // Vollbild
+  var lb = document.getElementById('oslb'), li = lb.querySelector('img'), lk = 0;
+  function lshow(n){ lk = (n + B.length) % B.length; setImg(li, B[lk].src); li.alt = B[lk].alt; }
+  function openLb(){ lshow(cur); lb.hidden = false; lb.classList.add('open'); document.documentElement.style.overflow = 'hidden'; pause(true); lb.querySelector('.x').focus(); }
+  function closeLb(){ lb.classList.remove('open'); lb.hidden = true; document.documentElement.style.overflow = ''; pause(false); if(lk !== cur) go(lk, lk < cur); stage.focus(); }
+  lb.querySelector('.x').addEventListener('click', closeLb);
+  lb.querySelector('.p').addEventListener('click', function(){ lshow(lk - 1); });
+  lb.querySelector('.n').addEventListener('click', function(){ lshow(lk + 1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb || e.target.classList.contains('oslb-stage')) closeLb(); });
+  document.addEventListener('keydown', function(e){ if(!lb.classList.contains('open')) return; if(e.key === 'Escape') closeLb(); if(e.key === 'ArrowLeft') lshow(lk - 1); if(e.key === 'ArrowRight') lshow(lk + 1); });
 })();
 
 (function(){
