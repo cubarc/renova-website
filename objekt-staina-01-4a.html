@@ -217,21 +217,15 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .os{margin:56px 0 0}
 .os-stage{position:relative;aspect-ratio:15/16;overflow:hidden;background:#0C0C0C;cursor:zoom-in;outline:none}
 .os-stage:focus-visible{box-shadow:0 0 0 1px #0C0C0C}
-.os-base,.os-slat img{position:absolute;top:0;height:100%;object-fit:cover;display:block}
-.os-base{left:0;width:100%;top:-1px;height:calc(100% + 2px);transform-origin:60% 50%;transition:filter 1.2s ease,transform 1.2s cubic-bezier(.6,0,.2,1)}
-.os-base.kb{animation:oskb 9s linear forwards}
-.os-stage.plan,.os-slat.plan{background:#FFFFFF}
-.os-stage .plan,.os-slat.plan img{object-fit:contain}
+.os-base{position:absolute;top:0;height:100%;object-fit:cover;display:block}
+.os-base{left:0;width:100%;top:-1px;height:calc(100% + 2px)}
+.os-stage.plan{background:#FFFFFF}
+.os-stage .plan{object-fit:contain}
 .os-base.plan{animation:none}
-.os-stage.go .os-base{filter:brightness(.55) saturate(.8);transform:scale(1.04)}
 .os-next{position:absolute;inset:0;pointer-events:none}
-.os-slat{position:absolute;top:0;bottom:0;overflow:hidden;clip-path:inset(0 0 100% 0);background:#0C0C0C;animation:osin 1s cubic-bezier(.75,0,.2,1) forwards}
-.os-slat img{transform:translateY(-6%) scale(1.06);animation:ospar 1.4s cubic-bezier(.3,0,.1,1) forwards}
-.os-slat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(243,242,239,.0) 60%,rgba(243,242,239,.35) 100%);animation:osglint 1s ease forwards}
-@keyframes osin{to{clip-path:inset(0 0 0 0)}}
-@keyframes ospar{to{transform:none}}
-@keyframes osglint{0%{opacity:1}100%{opacity:0}}
-@keyframes oskb{from{transform:scale(1)}to{transform:scale(1.07)}}
+.os-fade{position:absolute;left:0;top:-1px;width:100%;height:calc(100% + 2px);object-fit:cover;opacity:0;transition:opacity .9s ease}
+.os-fade.on{opacity:1}
+.os-next.plan{background:transparent}.os-fade.plan{object-fit:contain;background:#FFFFFF}
 .os-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid rgba(243,242,239,.55);background:rgba(12,12,12,.35);color:#F3F2EF;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .35s ease,background .35s ease;z-index:3}
 .os-prev{left:18px}.os-next-btn{right:18px}
 .os-stage:hover .os-btn,.os-btn:focus-visible{opacity:1}
@@ -256,7 +250,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 .oslb-stage .p{position:absolute;left:clamp(14px,3vw,30px);top:50%;transform:translateY(-50%)}
 .oslb-stage .n{position:absolute;right:clamp(14px,3vw,30px);top:50%;transform:translateY(-50%)}
 @media (max-width:900px){.os{margin-top:40px}.os-stage{aspect-ratio:4/3}.oslb-stage{padding:0 12px 80px}.oslb-stage .p,.oslb-stage .n{top:auto;bottom:16px;transform:none}}
-@media (prefers-reduced-motion:reduce){.os-slat,.os-slat img,.os-slat::after,.os-base.kb{animation:none!important;clip-path:none}.os-stage.go .os-base{filter:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.os-fade{transition:none}}
 .kavatar{display:block;width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:62% 30%;margin-top:18px;border:1px solid #3A3A3A}
 </style>
 <meta name="author" content="archivisu, Innsbruck, www.archivisu.at"><meta name="designer" content="archivisu, Webdesign, Innsbruck"><link rel="author" href="humans.txt"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "RENOVA Immobilien Tirol", "inLanguage": "de-AT", "publisher": {"@type": "Organization", "name": "RENOVA Immobilien Tirol GmbH", "email": "info@renovatirol.at"}, "creator": {"@type": "Organization", "name": "archivisu", "url": "https://www.archivisu.at", "description": "Webdesign, Innsbruck", "address": {"@type": "PostalAddress", "streetAddress": "Maria-Theresien-Straße 18", "postalCode": "6020", "addressLocality": "Innsbruck", "addressCountry": "AT"}}}</script></head>
@@ -453,7 +447,7 @@ function setImg(img, src){
   var B = JSON.parse(document.getElementById('bilder').textContent);
   var stage = fig.querySelector('.os-stage'), base = fig.querySelector('.os-base'), nx = fig.querySelector('.os-next');
   var segs = fig.querySelectorAll('.os-seg'), alt = fig.querySelector('.os-alt'), cnt = fig.querySelector('.os-cnt');
-  var N = 7, DUR = 5600, cur = 0, busy = false, timer = null, hover = false, seen = false;
+  var DUR = 2600, cur = 0, busy = false, timer = null, hover = false, seen = false;
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function isPlan(b){ return /grundriss|masterplan/i.test(b.alt); }
   function pad(n){ return (n < 10 ? '0' : '') + n; }
@@ -467,26 +461,17 @@ function setImg(img, src){
   function setBase(b){
     setImg(base, b.src); base.alt = b.alt;
     var p = isPlan(b); stage.classList.toggle('plan', p); base.classList.toggle('plan', p);
-    base.classList.remove('kb'); void base.offsetWidth; if(!still && !p) base.classList.add('kb');
+    
   }
   function go(n, back){
     if(busy) return; n = (n + B.length) % B.length; if(n === cur) return;
     var b = B[n]; cur = n; label(); bar(); schedule();
     if(still){ setBase(b); return; }
-    busy = true; stage.classList.add('go'); nx.innerHTML = '';
-    var plan = isPlan(b);
-    for(var k = 0; k < N; k++){
-      var s = document.createElement('div'); s.className = 'os-slat' + (plan ? ' plan' : '');
-      var w = 100 / N, idx = back ? N - 1 - k : k;
-      s.style.left = (idx * w) + '%'; s.style.width = 'calc(' + w + '% + 1px)';
-      s.style.animationDelay = (k * 75) + 'ms';
-      var im = mk(b); im.style.left = (-idx * 100) + '%'; im.style.width = (N * 100) + '%'; im.style.animationDelay = (k * 75) + 'ms';
-      s.appendChild(im); nx.appendChild(s);
-    }
-    setTimeout(function(){
-      base.style.transition = 'none'; stage.classList.remove('go'); setBase(b); void base.offsetWidth; base.style.transition = '';
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){ nx.innerHTML = ''; busy = false; }); });
-    }, 1000 + (N - 1) * 75 + 120);
+    busy = true; nx.innerHTML = '';
+    var im = mk(b); im.className = 'os-fade' + (isPlan(b) ? ' plan' : ''); nx.appendChild(im);
+    if(isPlan(b)) nx.classList.add('plan'); else nx.classList.remove('plan');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ im.classList.add('on'); }); });
+    setTimeout(function(){ setBase(b); requestAnimationFrame(function(){ nx.innerHTML = ''; busy = false; }); }, 950);
   }
   function schedule(){ clearTimeout(timer); if(still || hover || !seen || document.hidden) return; timer = setTimeout(function(){ go(cur + 1); }, DUR); }
   function pause(p){ hover = p; fig.classList.toggle('paused', p); if(p) clearTimeout(timer); else { bar(); schedule(); } }
