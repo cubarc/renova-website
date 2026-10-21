@@ -545,7 +545,7 @@ function setImg(img, src){
       ['Anrede', val('Anrede')], ['Name', val('Vorname') + ' ' + val('Nachname')], ['E-Mail', val('Email')], ['Telefon', val('Telefon')],
       ['Kontaktweg', chips('Kontaktweg')], ['Nachricht', val('Nachricht')]
     ].filter(function(r){ return r[1] && r[1] !== 'bitte wählen'; });
-    var text = 'SUCHAUFTRAG über renova-immobilien.at\n\n' + d.map(function(r){ return r[0] + ': ' + r[1]; }).join('\n') + '\n\nEinwilligung Datenschutz: ja';
+    var text = 'SUCHAUFTRAG über renovatirol.at\n\n' + d.map(function(r){ return r[0] + ': ' + r[1]; }).join('\n') + '\n\nEinwilligung Datenschutz: ja';
     var subject = 'Suchauftrag: ' + val('Vorname') + ' ' + val('Nachname');
     function done(viaMail){
       form.style.display = 'none'; var ok = document.getElementById('sa-done'); ok.classList.add('show');

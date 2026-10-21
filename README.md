@@ -1,4 +1,4 @@
-# RENOVA Alpenimmobilien Tirol – Website
+# RENOVA Immobilien Tirol – Website
 
 Statische Website (HTML, CSS, JS, keine Build-Schritte).
 Wird von Cloudflare Pages automatisch aus dem `main`-Branch veröffentlicht.
