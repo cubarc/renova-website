@@ -63,6 +63,12 @@ $kopf = [
     'Content-Transfer-Encoding: 8bit',
     'X-Renova-Formular: ' . $art,
 ];
-$ok = mail(EMPFAENGER, '=?UTF-8?B?' . base64_encode($betreff) . '?=', $text, implode("\r\n", $kopf), '-f' . ABSENDER);
-if (!$ok) antwort(false, 500, 'Versand');
+$sub = '=?UTF-8?B?' . base64_encode($betreff) . '?=';
+$ok = @mail(EMPFAENGER, $sub, $text, implode("\r\n", $kopf), '-f' . ABSENDER);
+if (!$ok) $ok = @mail(EMPFAENGER, $sub, $text, implode("\r\n", $kopf));   // manche Hosts erlauben -f nicht
+if (!$ok) {
+    $e = error_get_last();
+    $diag = function_exists('mail') ? ($e['message'] ?? 'mail() false') : 'mail() deaktiviert';
+    antwort(false, 500, 'Versand: ' . mb_substr($diag, 0, 160));
+}
 antwort(true);
