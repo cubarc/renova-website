@@ -1,0 +1,9 @@
+/* TEAM */
+  Konzept, Design & Umsetzung: archivisu
+  Web: www.archivisu.at
+  Ort: Innsbruck, Tirol, Österreich
+
+/* SITE */
+  Kunde: RENOVA Immobilien Tirol GmbH
+  Sprache: Deutsch
+  Standards: HTML5, CSS3, SVG
