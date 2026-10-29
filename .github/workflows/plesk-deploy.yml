@@ -1,0 +1,12 @@
+# Bei jeder Änderung am Zweig "live" holt sich Plesk (b2go) den neuen Stand nach /httpdocs
+name: Plesk Deploy
+on:
+  push:
+    branches: [live]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Plesk benachrichtigen
+        run: curl -fsS -X POST "https://web2.b2go.cloud:8443/modules/git/public/web-hook.php?uuid=3093193d-43b8-64c3-55f1-9c5902a2c20c"
