@@ -391,6 +391,7 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 </fieldset>
 
 <div class="sa-submit"><button type="submit">Suchauftrag absenden</button><span>Kostenlos &amp; unverbindlich · * Pflichtfelder</span></div>
+<p id="sa-fail" tabindex="-1" hidden style="margin: 16px 0 0; padding: 14px 16px; border: 1px solid #9B3B2E; color: #9B3B2E; font-size: 13px; line-height: 1.6">Ihr Suchauftrag konnte gerade nicht gesendet werden. Bitte versuchen Sie es gleich noch einmal oder erreichen Sie uns direkt unter <a href="tel:+436648443054" style="color: inherit">+43 664 8443054</a> bzw. <a href="mailto:info@renovatirol.at" style="color: inherit">info@renovatirol.at</a>.</p>
 </form>
 <div class="sa-done" id="sa-done" role="status" aria-live="polite" tabindex="-1">
 <div style="display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #6E6C68; font-weight: 400"><span style="display: block; width: 38px; height: 1px; background: #6E6C68"></span>Vielen Dank</div>
@@ -513,7 +514,7 @@ function setImg(img, src){
 })();
 
 (function(){
-  var ENDPOINT = '', KEY = '', TO = 'info@renovatirol.at';
+  var ENDPOINT = '/senden.php', KEY = 'eigener-server', TO = 'info@renovatirol.at';
   var form = document.getElementById('sa-form'); if(!form) return;
   form.querySelectorAll('.sa-chips').forEach(function(g){
     var multi = g.dataset.multi === 'true';
@@ -552,15 +553,12 @@ function setImg(img, src){
       if(viaMail) document.getElementById('sa-done-text').textContent = 'Ihr E-Mail-Programm hat sich mit Ihrem fertig ausgefüllten Suchauftrag geöffnet. Bitte nur noch auf „Senden“ klicken. Wir melden uns in der Regel innerhalb von zwei Werktagen.';
       ok.focus(); ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-    if(ENDPOINT){
-      var payload = { access_key: KEY, subject: subject, from_name: 'RENOVA Website', replyto: val('Email'), message: text };
-      d.forEach(function(r){ payload[r[0]] = r[1]; });
-      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
-        .then(function(r){ if(!r.ok) throw 0; done(false); })
-        .catch(function(){ location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text); done(true); });
-    } else {
-      location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text); done(true);
-    }
+    var btn = form.querySelector('button[type="submit"]'); if(btn) btn.disabled = true;
+    function fail(){ if(btn) btn.disabled = false; var er = document.getElementById('sa-fail'); er.hidden = false; er.focus(); }
+    var payload = { art: 'suchauftrag', subject: subject, from_name: 'RENOVA Website', replyto: val('Email'), message: text, botcheck: '' };
+    d.forEach(function(r){ payload[r[0]] = r[1]; });
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.json(); }).then(function(j){ if(!j.success) throw 0; done(false); }).catch(fail);
   });
 })();
 </script>
