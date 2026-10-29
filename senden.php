@@ -84,6 +84,6 @@ if (!$ok) {
     $e = error_get_last(); $diag = $e['message'] ?? 'mail() false';
     $f2 = '';
     $ok = smtp_lokal(EMPFAENGER, ABSENDER, $sub, $text, $kopf, $f2);
-    if (!$ok) antwort(false, 500, 'Versand: ' . mb_substr($diag . ' | ' . $f2, 0, 300));
+    if (!$ok) { error_log('RENOVA Formular: ' . $diag . ' | ' . $f2); antwort(false, 500, 'Versand'); }
 }
 antwort(true);
