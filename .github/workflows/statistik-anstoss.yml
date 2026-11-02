@@ -1,5 +1,5 @@
-# Stößt am Monatsanfang die geplanten Aufgaben von Matomo an (Monatsbericht per E-Mail).
-# Die Anfrage hat eine Bot-Kennung und wird von Matomo nicht als Besuch gezählt.
+# Verschickt am Monatsanfang den RENOVA Monatsbericht (Statistik des Vormonats) per E-Mail.
+# Das Skript auf dem Server sendet pro Monat nur ein einziges Mal, weitere Aufrufe bewirken nichts.
 name: Statistik Monatsbericht anstoßen
 on:
   schedule:
@@ -10,6 +10,4 @@ jobs:
   anstoss:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          curl -s -o /dev/null -w "%{http_code}\n" -A "RenovaStatistikCron bot" \
-            "https://www.renovatirol.at/statistik/matomo.php?idsite=1&rec=1&send_image=0&url=https%3A%2F%2Fwww.renovatirol.at%2F"
+      - run: curl -s -A "RenovaStatistikCron" "https://www.renovatirol.at/monatsbericht.php"
