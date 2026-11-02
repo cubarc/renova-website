@@ -202,7 +202,7 @@ header('Cache-Control: no-store');
 date_default_timezone_set('Europe/Vienna');
 $test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro 10 Minuten
 if ($test) {
-    $testsperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-test-' . date('Y-m-d') . '.gesendet';
+    $testsperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-test-' . date('Y-m-d-H-') . intdiv((int)date('i'), 10) . '.gesendet';
     if (is_file($testsperre)) { echo "Test heute schon gesendet\n"; exit; }
 }
 if ((int)date('j') > 5 && !isset($_GET['pruefen']) && !$test) { echo "nichts zu tun\n"; exit; }
