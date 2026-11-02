@@ -24,7 +24,9 @@ function veraenderung($jetzt, $vorher): string {
 function dauer($sek): string { $sek = (int)round((float)$sek); return intdiv($sek, 60) . ' min ' . str_pad((string)($sek % 60), 2, '0', STR_PAD_LEFT) . ' s'; }
 
 function bericht_html(array $d): string {
-    $c = ['bg' => '#0C0C0C', 'karte' => '#141414', 'linie' => '#2A2928', 'text' => '#E6E4E0', 'hell' => '#F3F2EF', 'grau' => '#8A8782', 'silber' => '#C9C6C0', 'balken' => '#3A3937'];
+    $c = ['bg' => '#1C1B19', 'karte' => '#24221F', 'linie' => '#3A3834', 'text' => '#ECEAE6', 'hell' => '#F6F5F2', 'grau' => '#9D9A94', 'silber' => '#D2CFC9', 'balken' => '#45423D'];
+    // Hintergrund mit sanftem, warmem Verlauf (Outlook zeigt die einfarbige Grundfarbe)
+    $verlauf = 'background-color:' . $c['bg'] . ';background-image:radial-gradient(ellipse 120% 45% at 50% 0%,#4A4640 0%,rgba(74,70,64,0) 70%),linear-gradient(180deg,#34312D 0%,#22201E 38%,#181716 100%);';
     $font = "'Jost','Helvetica Neue',Helvetica,Arial,sans-serif";
     $k = $d['kennzahlen'];
     $kachel = function (string $titel, $wert, string $sub) use ($c, $font) {
@@ -63,10 +65,10 @@ function bericht_html(array $d): string {
 
     $h = '<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">'
        . '<title>' . e('RENOVA Monatsbericht ' . $d['monat']) . '</title></head>'
-       . '<body style="margin:0;padding:0;background:' . $c['bg'] . ';">'
+       . '<body style="margin:0;padding:0;' . $verlauf . '">'
        . '<div style="display:none;max-height:0;overflow:hidden;">' . e(zahl($k['besuche']) . ' Besuche, ' . zahl($k['anfragen']) . ' Anfragen im ' . $d['monat']) . '</div>'
-       . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:' . $c['bg'] . ';"><tr><td align="center" style="padding:32px 12px;">'
-       . '<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:' . $c['bg'] . ';">'
+       . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="' . $c['bg'] . '" style="' . $verlauf . '"><tr><td align="center" style="padding:32px 12px;">'
+       . '<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">'
        // Kopf
        . '<tr><td style="padding:28px 36px 0;"><img src="https://www.renovatirol.at/assets/logo/renova-mail-logo.png" width="190" alt="RENOVA Immobilien Tirol" style="display:block;width:190px;height:auto;border:0;"></td></tr>'
        . '<tr><td style="padding:56px 36px 0;font-family:' . $font . ';font-size:11px;letter-spacing:3px;text-transform:uppercase;color:' . $c['grau'] . ';">Monatsbericht Website</td></tr>'
@@ -198,7 +200,7 @@ if (PHP_SAPI === 'cli' && getenv('RENOVA_LOKAL')) return;   // lokal nur Funktio
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-Control: no-store');
 date_default_timezone_set('Europe/Vienna');
-$test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro Tag
+$test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro Stunde
 if ($test) {
     $testsperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-test-' . date('Y-m-d') . '.gesendet';
     if (is_file($testsperre)) { echo "Test heute schon gesendet\n"; exit; }
