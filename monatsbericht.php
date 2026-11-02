@@ -175,19 +175,19 @@ function bericht_daten(callable $api, string $monatErster): array {
 }
 
 // ---------- Versand über den lokalen Mailserver ----------
-function bericht_senden(string $betreff, string $html, string $text, string &$fehler): bool {
+function bericht_senden(string $betreff, string $html, string $text, string &$fehler, array $an_liste = BERICHT_AN): bool {
     $fp = @stream_socket_client('tcp://127.0.0.1:25', $en, $es, 8);
     if (!$fp) { $fehler = 'SMTP ' . $es; return false; }
     stream_set_timeout($fp, 20);
     $lies = function () use ($fp) { $r = ''; while (($l = fgets($fp, 1024)) !== false) { $r .= $l; if (isset($l[3]) && $l[3] === ' ') break; } return $r; };
     $cmd = function (string $c, string $erw) use ($fp, $lies, &$fehler) { if ($c !== '') fwrite($fp, $c . "\r\n"); $r = $lies(); if (strpos($r, $erw) !== 0) { $fehler = trim($r); return false; } return true; };
     $grenze = 'renova' . bin2hex(random_bytes(8));
-    $kopf = 'From: =?UTF-8?B?' . base64_encode('RENOVA Statistik') . '?= <' . BERICHT_VON . ">\r\nTo: " . BERICHT_AN[0] . "\r\nSubject: =?UTF-8?B?" . base64_encode($betreff) . "?=\r\n"
+    $kopf = 'From: =?UTF-8?B?' . base64_encode('RENOVA Statistik') . '?= <' . BERICHT_VON . ">\r\nTo: " . $an_liste[0] . "\r\nSubject: =?UTF-8?B?" . base64_encode($betreff) . "?=\r\n"
           . 'Date: ' . date('r') . "\r\nMessage-ID: <" . bin2hex(random_bytes(8)) . "@renovatirol.at>\r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$grenze\"\r\n\r\n";
     $teil = fn(string $typ, string $inhalt) => "--$grenze\r\nContent-Type: $typ; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($inhalt)) . "\r\n";
     $daten = $kopf . $teil('text/plain', $text) . $teil('text/html', $html) . "--$grenze--\r\n.";
     $ok = $cmd('', '220') && $cmd('EHLO www.renovatirol.at', '250') && $cmd('MAIL FROM:<' . BERICHT_VON . '>', '250');
-    foreach (BERICHT_AN as $an) $ok = $ok && $cmd('RCPT TO:<' . $an . '>', '25');
+    foreach ($an_liste as $an) $ok = $ok && $cmd('RCPT TO:<' . $an . '>', '25');
     $ok = $ok && $cmd('DATA', '354') && $cmd($daten, '250');
     fwrite($fp, "QUIT\r\n"); fclose($fp);
     return $ok;
@@ -198,10 +198,15 @@ if (PHP_SAPI === 'cli' && getenv('RENOVA_LOKAL')) return;   // lokal nur Funktio
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-Control: no-store');
 date_default_timezone_set('Europe/Vienna');
-if ((int)date('j') > 5 && !isset($_GET['pruefen'])) { echo "nichts zu tun\n"; exit; }
-$monatErster = date('Y-m-01', strtotime('first day of last month'));
+$test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro Tag
+if ($test) {
+    $testsperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-test-' . date('Y-m-d') . '.gesendet';
+    if (is_file($testsperre)) { echo "Test heute schon gesendet\n"; exit; }
+}
+if ((int)date('j') > 5 && !isset($_GET['pruefen']) && !$test) { echo "nichts zu tun\n"; exit; }
+$monatErster = $test ? date('Y-m-01') : date('Y-m-01', strtotime('first day of last month'));
 $sperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-' . substr($monatErster, 0, 7) . '.gesendet';
-if (is_file($sperre) && !isset($_GET['pruefen'])) { echo "schon gesendet\n"; exit; }
+if (is_file($sperre) && !isset($_GET['pruefen']) && !$test) { echo "schon gesendet\n"; exit; }
 
 define('PIWIK_INCLUDE_PATH', __DIR__ . '/statistik');
 define('PIWIK_USER_PATH', PIWIK_INCLUDE_PATH);
@@ -227,6 +232,12 @@ try {
     $d = bericht_daten($api, $monatErster);
 } catch (\Throwable $t) { error_log('RENOVA Monatsbericht Daten: ' . $t->getMessage()); http_response_code(500); echo "Fehler\n"; if (isset($_GET['pruefen'])) echo get_class($t) . ' ' . mb_substr($t->getMessage(), 0, 300) . ' @' . basename($t->getFile()) . ':' . $t->getLine() . "\n"; exit; }
 if (isset($_GET['pruefen'])) { echo 'Daten ok, ' . count($d['kennzahlen']) . " Kennzahlen, nichts gesendet\n"; exit; }
+if ($test) {
+    @file_put_contents($testsperre, date('c')); $fehler = '';
+    $ok = bericht_senden('TEST · RENOVA Website · Monatsbericht ' . $d['monat'], bericht_html($d), bericht_text($d), $fehler, ['statistik@renovatirol.at']);
+    if (!$ok) { @unlink($testsperre); error_log('RENOVA Monatsbericht Test: ' . $fehler); http_response_code(500); echo "Fehler\n"; exit; }
+    echo "Test gesendet\n"; exit;
+}
 if ((int)$d['kennzahlen']['besuche'] === 0) { @file_put_contents($sperre, 'keine Besuche ' . date('c')); echo "keine Daten, nichts gesendet\n"; exit; }
 $fehler = '';
 if (!@file_put_contents($sperre, date('c'))) { error_log('RENOVA Monatsbericht: Sperrdatei nicht schreibbar'); http_response_code(500); echo "Fehler\n"; exit; }
