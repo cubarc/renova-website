@@ -24,9 +24,9 @@ function veraenderung($jetzt, $vorher): string {
 function dauer($sek): string { $sek = (int)round((float)$sek); return intdiv($sek, 60) . ' min ' . str_pad((string)($sek % 60), 2, '0', STR_PAD_LEFT) . ' s'; }
 
 function bericht_html(array $d): string {
-    $c = ['bg' => '#1C1B19', 'karte' => '#24221F', 'linie' => '#3A3834', 'text' => '#ECEAE6', 'hell' => '#F6F5F2', 'grau' => '#9D9A94', 'silber' => '#D2CFC9', 'balken' => '#45423D'];
-    // Hintergrund mit sanftem, warmem Verlauf (Outlook zeigt die einfarbige Grundfarbe)
-    $verlauf = 'background-color:' . $c['bg'] . ';background-image:radial-gradient(ellipse 120% 45% at 50% 0%,#4A4640 0%,rgba(74,70,64,0) 70%),linear-gradient(180deg,#34312D 0%,#22201E 38%,#181716 100%);';
+    $c = ['bg' => '#141414', 'karte' => '#1E1E1E', 'linie' => '#363636', 'text' => '#E6E4E0', 'hell' => '#F3F2EF', 'grau' => '#A3A09A', 'silber' => '#CFCFCF', 'balken' => '#3E3E3E'];
+    // Hintergrund laut CI: Graphit #141414 mit sanftem, neutralem Grauverlauf (Outlook zeigt die einfarbige Grundfarbe)
+    $verlauf = 'background-color:' . $c['bg'] . ';background-image:radial-gradient(ellipse 120% 45% at 50% 0%,#3C3C3C 0%,rgba(60,60,60,0) 70%),linear-gradient(180deg,#2C2C2C 0%,#1C1C1C 40%,#121212 100%);';
     $font = "'Jost','Helvetica Neue',Helvetica,Arial,sans-serif";
     $k = $d['kennzahlen'];
     $kachel = function (string $titel, $wert, string $sub) use ($c, $font) {
