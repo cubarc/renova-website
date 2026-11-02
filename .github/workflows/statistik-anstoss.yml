@@ -1,0 +1,15 @@
+# Stößt am Monatsanfang die geplanten Aufgaben von Matomo an (Monatsbericht per E-Mail).
+# Die Anfrage hat eine Bot-Kennung und wird von Matomo nicht als Besuch gezählt.
+name: Statistik Monatsbericht anstoßen
+on:
+  schedule:
+    - cron: '20 5-9 1 * *'
+    - cron: '20 6 2 * *'
+  workflow_dispatch:
+jobs:
+  anstoss:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -s -o /dev/null -w "%{http_code}\n" -A "RenovaStatistikCron bot" \
+            "https://www.renovatirol.at/statistik/matomo.php?idsite=1&rec=1&send_image=0&url=https%3A%2F%2Fwww.renovatirol.at%2F"
