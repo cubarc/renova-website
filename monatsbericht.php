@@ -212,6 +212,7 @@ require_once PIWIK_INCLUDE_PATH . '/index.php';
 require_once PIWIK_INCLUDE_PATH . '/core/API/Request.php';
 $umgebung = new \Piwik\Application\Environment(null);
 $umgebung->init();
+\Piwik\FrontController::getInstance()->init();   // lädt die Plugins (API, Renderer)
 \Piwik\Access::getInstance();
 try { \Piwik\Container\StaticContainer::get('Piwik\Translation\Translator')->setCurrentLanguage('de'); } catch (\Throwable $t) {}
 
