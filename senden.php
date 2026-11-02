@@ -34,12 +34,20 @@ function zeile(string $s, int $max = 300): string {
     return mb_substr(trim($s), 0, $max);
 }
 
-if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') antwort(false, 405, 'Nur POST');
-
-// Nur Aufrufe von der eigenen Website annehmen
+// Nur Aufrufe von der eigenen Website annehmen (renovatirol.at, renovatirol.com und die Cloudflare-Vorschau)
+const ERLAUBT = '/(^|\.)(renovatirol\.at|renovatirol\.com|renova-alpenimmobilien\.pages\.dev)$/i';
 $herkunft = $_SERVER['HTTP_ORIGIN'] ?? ($_SERVER['HTTP_REFERER'] ?? '');
 $host = parse_url($herkunft, PHP_URL_HOST) ?: '';
-if ($host !== '' && !preg_match('/(^|\.)renovatirol\.at$/i', $host)) antwort(false, 403, 'Herkunft');
+if (isset($_SERVER['HTTP_ORIGIN']) && preg_match(ERLAUBT, $host)) {
+    header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+    header('Access-Control-Allow-Methods: POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Accept');
+    header('Access-Control-Max-Age: 86400');
+    header('Vary: Origin');
+}
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') { http_response_code(204); exit; }
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') antwort(false, 405, 'Nur POST');
+if ($host !== '' && !preg_match(ERLAUBT, $host)) antwort(false, 403, 'Herkunft');
 
 $roh = file_get_contents('php://input', false, null, 0, 60000) ?: '';
 $d = json_decode($roh, true);

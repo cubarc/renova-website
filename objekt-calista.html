@@ -619,7 +619,7 @@ function setImg(img, src){
 
 (function(){
   var dlg = document.getElementById('anfrage-form'); if(!dlg) return;
-  var ENDPOINT = '/senden.php', KEY = 'eigener-server', TO = 'info@renovatirol.at';
+  var ENDPOINT = 'https://www.renovatirol.at/senden.php', KEY = 'eigener-server', TO = 'info@renovatirol.at';
   var form = dlg.querySelector('form'), done = dlg.querySelector('.af-done'), last = null, bar = document.querySelector('.af-bar');
   var obj = dlg.dataset.objekt, ort = dlg.dataset.ort, preis = dlg.dataset.preis, code = dlg.dataset.code;
   var msg = form.elements.Nachricht;

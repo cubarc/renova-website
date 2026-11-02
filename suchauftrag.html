@@ -538,7 +538,7 @@ function setImg(img, src){
 })();
 
 (function(){
-  var ENDPOINT = '/senden.php', KEY = 'eigener-server', TO = 'info@renovatirol.at';
+  var ENDPOINT = 'https://www.renovatirol.at/senden.php', KEY = 'eigener-server', TO = 'info@renovatirol.at';
   var form = document.getElementById('sa-form'); if(!form) return;
   form.querySelectorAll('.sa-chips').forEach(function(g){
     var multi = g.dataset.multi === 'true';
