@@ -21,6 +21,7 @@ function veraenderung($jetzt, $vorher): string {
     if ($p == 0) return '± 0 %';
     return ($p > 0 ? '+' : '−') . abs($p) . ' %';
 }
+function dauer_kurz($sek): string { $sek = (int)round((float)$sek); return intdiv($sek, 60) . ':' . str_pad((string)($sek % 60), 2, '0', STR_PAD_LEFT); }
 function dauer($sek): string { $sek = (int)round((float)$sek); return intdiv($sek, 60) . ' min ' . str_pad((string)($sek % 60), 2, '0', STR_PAD_LEFT) . ' s'; }
 
 function bericht_html(array $d): string {
@@ -29,10 +30,10 @@ function bericht_html(array $d): string {
     $verlauf = 'background-color:' . $c['bg'] . ';background-image:radial-gradient(ellipse 120% 45% at 50% 0%,#3C3C3C 0%,rgba(60,60,60,0) 70%),linear-gradient(180deg,#2C2C2C 0%,#1C1C1C 40%,#121212 100%);';
     $font = "'Jost','Helvetica Neue',Helvetica,Arial,sans-serif";
     $k = $d['kennzahlen'];
-    $kachel = function (string $titel, $wert, string $sub) use ($c, $font) {
+    $kachel = function (string $titel, $wert, string $sub, string $einheit = '') use ($c, $font) {
         return '<td width="33%" valign="top" style="padding:22px 12px 20px 0;border-top:1px solid ' . $c['linie'] . ';">'
-            . '<div style="font-family:' . $font . ';font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:' . $c['grau'] . ';">' . e($titel) . '</div>'
-            . '<div style="font-family:' . $font . ';font-size:30px;font-weight:300;color:' . $c['hell'] . ';line-height:1.2;padding-top:8px;">' . e($wert) . '</div>'
+            . '<div style="font-family:' . $font . ';font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:' . $c['grau'] . ';">' . e($titel) . '</div>'
+            . '<div style="font-family:' . $font . ';font-size:30px;font-weight:300;color:' . $c['hell'] . ';line-height:1.2;padding-top:8px;white-space:nowrap;">' . e($wert) . ($einheit !== '' ? '<span style="font-size:13px;color:' . $c['grau'] . ';"> ' . e($einheit) . '</span>' : '') . '</div>'
             . '<div style="font-family:' . $font . ';font-size:12px;color:' . $c['grau'] . ';padding-top:4px;">' . e($sub) . '</div></td>';
     };
     $abschnitt = function (string $titel) use ($c, $font) {
@@ -82,9 +83,13 @@ function bericht_html(array $d): string {
        . '</tr><tr>'
        . $kachel('Anfragen', zahl($k['anfragen']), veraenderung($k['anfragen'], $k['anfragen_vm']))
        . $kachel('Kontakte', zahl($k['kontakt']), veraenderung($k['kontakt'], $k['kontakt_vm']))
-       . $kachel('ImmoScout', zahl($k['immoscout']), veraenderung($k['immoscout'], $k['immoscout_vm']))
+       . $kachel('Verweildauer', dauer_kurz($k['dauer']), veraenderung($k['dauer'], $k['dauer_vm']), 'min')
+       . '</tr><tr>'
+       . $kachel('Von ImmoScout', zahl($k['von_immoscout']), veraenderung($k['von_immoscout'], $k['von_immoscout_vm']))
+       . $kachel('Zu ImmoScout', zahl($k['immoscout']), veraenderung($k['immoscout'], $k['immoscout_vm']))
+       . $kachel('Seiten je Besuch', str_replace('.', ',', (string)round((float)$k['seiten_je_besuch'], 1)), veraenderung($k['seiten_je_besuch'], $k['seiten_je_besuch_vm']))
        . '</tr></table></td></tr>'
-       . '<tr><td style="padding:6px 36px 0;font-family:' . $font . ';font-size:12px;line-height:1.7;color:' . $c['grau'] . ';">Prozentwerte im Vergleich zum Vormonat · Kontakte sind Klicks auf Anrufen und E-Mail · ImmoScout zählt Klicks zum Inserat · Verweildauer im Schnitt ' . e(dauer($k['dauer'])) . ' · ' . e(str_replace('.', ',', (string)round((float)$k['seiten_je_besuch'], 1))) . ' Seiten je Besuch</td></tr>'
+       . '<tr><td style="padding:6px 36px 0;font-family:' . $font . ';font-size:12px;line-height:1.7;color:' . $c['grau'] . ';">Prozentwerte im Vergleich zum Vormonat<br>Kontakte sind Klicks auf Anrufen und E-Mail<br>Von ImmoScout sind Besuche, die über ein ImmoScout-Inserat auf die Website kommen<br>Zu ImmoScout sind Klicks auf der Website, die zu einem ImmoScout-Inserat führen</td></tr>'
        // Objekte und Seiten
        . $abschnitt('Meistbesuchte Seiten') . $liste($d['seiten'])
        // Herkunft
@@ -110,7 +115,7 @@ function bericht_text(array $d): string {
     $t = "RENOVA MONATSBERICHT WEBSITE\n" . $d['monat'] . "\n\n" . $d['satz'] . "\n\n";
     $t .= 'Besuche ' . zahl($k['besuche']) . ' (' . veraenderung($k['besuche'], $k['besuche_vm']) . ")\n";
     $t .= 'Besucher ' . zahl($k['besucher']) . "\nSeitenaufrufe " . zahl($k['aufrufe']) . "\n";
-    $t .= 'Anfragen ' . zahl($k['anfragen']) . "\nAnrufe und E-Mails " . zahl($k['kontakt']) . "\nZu ImmoScout " . zahl($k['immoscout']) . "\n\n";
+    $t .= 'Anfragen ' . zahl($k['anfragen']) . "\nKontakte (Anrufen, E-Mail) " . zahl($k['kontakt']) . "\nVon ImmoScout (Besuche über ImmoScout) " . zahl($k['von_immoscout']) . "\nZu ImmoScout (Klicks zum Inserat) " . zahl($k['immoscout']) . "\n\n";
     $t .= "MEISTBESUCHTE SEITEN\n"; foreach ($d['seiten'] as $z) $t .= '  ' . $z[0] . '  ' . $z[1] . "\n";
     $t .= "\nHERKUNFT\n"; foreach ($d['kanaele'] as $z) $t .= '  ' . $z[0] . '  ' . $z[1] . " %\n";
     $t .= "\nVolle Statistik https://www.renovatirol.at/statistik/\n";
@@ -154,6 +159,11 @@ function bericht_daten(callable $api, string $monatErster): array {
     }
     $kan = array_map(fn($z) => [$z[0], $summe ? round($z[1] / $summe * 100) : 0], $kan);
     usort($kan, fn($a, $b) => $b[1] <=> $a[1]);
+    $vonIS = function (string $datum) use ($api, $p) {
+        $n = 0;
+        foreach ($api('Referrers.getWebsites', $p($datum, ['filter_limit' => -1])) as $z) if (preg_match('/immobilienscout|immoscout/i', (string)$z['label'])) $n += (int)$z['nb_visits'];
+        return $n;
+    };
     $quellen = array_slice(array_map(fn($z) => (string)$z['label'], $api('Referrers.getAll', $p($monatErster, ['filter_limit' => 5]))), 0, 5);
     $ger = []; $gs = 0; $gn = ['Desktop' => 'Computer', 'Smartphone' => 'Handy', 'Tablet' => 'Tablet', 'Phablet' => 'Handy'];
     foreach ($api('DevicesDetection.getType', $p($monatErster)) as $z) { $n = $gn[$z['label']] ?? 'Andere'; $ger[$n] = ($ger[$n] ?? 0) + (int)$z['nb_visits']; $gs += (int)$z['nb_visits']; }
@@ -169,7 +179,9 @@ function bericht_daten(callable $api, string $monatErster): array {
         'anfragen' => $e['anfragen'], 'anfragen_vm' => $ev_vm['anfragen'],
         'kontakt' => $e['kontakt'], 'kontakt_vm' => $ev_vm['kontakt'],
         'immoscout' => $e['immoscout'], 'immoscout_vm' => $ev_vm['immoscout'],
-        'dauer' => $vs['avg_time_on_site'] ?? 0, 'seiten_je_besuch' => $vs['nb_actions_per_visit'] ?? 0,
+        'von_immoscout' => $vonIS($monatErster), 'von_immoscout_vm' => $vonIS($vm),
+        'dauer' => $vs['avg_time_on_site'] ?? 0, 'dauer_vm' => $vsv['avg_time_on_site'] ?? 0,
+        'seiten_je_besuch' => $vs['nb_actions_per_visit'] ?? 0, 'seiten_je_besuch_vm' => $vsv['nb_actions_per_visit'] ?? 0,
     ];
     $satz = zahl($k['besuche']) . ' Besuche und ' . zahl($k['anfragen']) . ($k['anfragen'] == 1 ? ' Anfrage' : ' Anfragen') . ' über die Website im ' . $monat . '.';
     return ['monat' => $monat, 'satz' => $satz, 'kennzahlen' => $k, 'seiten' => $seiten, 'kanaele' => $kan, 'quellen' => $quellen,
@@ -200,7 +212,7 @@ if (PHP_SAPI === 'cli' && getenv('RENOVA_LOKAL')) return;   // lokal nur Funktio
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-Control: no-store');
 date_default_timezone_set('Europe/Vienna');
-$test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro 10 Minuten
+$test = isset($_GET['test']);   // Testversand an statistik@ (Weiterleitung an info@cubarc.at), mit test=alle an beide Empfänger, aktueller Monat, höchstens einmal pro 10 Minuten
 if ($test) {
     $testsperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-test-' . date('Y-m-d-H-') . intdiv((int)date('i'), 10) . '.gesendet';
     if (is_file($testsperre)) { echo "Test heute schon gesendet\n"; exit; }
@@ -236,7 +248,7 @@ try {
 if (isset($_GET['pruefen'])) { echo 'Daten ok, ' . count($d['kennzahlen']) . " Kennzahlen, nichts gesendet\n"; exit; }
 if ($test) {
     @file_put_contents($testsperre, date('c')); $fehler = '';
-    $ok = bericht_senden('TEST · RENOVA Website · Monatsbericht ' . $d['monat'], bericht_html($d), bericht_text($d), $fehler, ['statistik@renovatirol.at']);
+    $ok = bericht_senden('TEST · RENOVA Website · Monatsbericht ' . $d['monat'], bericht_html($d), bericht_text($d), $fehler, ($_GET['test'] === 'alle') ? BERICHT_AN : ['statistik@renovatirol.at']);
     if (!$ok) { @unlink($testsperre); error_log('RENOVA Monatsbericht Test: ' . $fehler); http_response_code(500); echo "Fehler\n"; exit; }
     echo "Test gesendet\n"; exit;
 }
