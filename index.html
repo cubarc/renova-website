@@ -291,7 +291,31 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
 }
 
 </style>
-<meta name="author" content="archivisu, Innsbruck, www.archivisu.at"><meta name="designer" content="archivisu, Webdesign, Innsbruck"><link rel="author" href="humans.txt"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "RENOVA Immobilien Tirol", "inLanguage": "de-AT", "publisher": {"@type": "Organization", "name": "RENOVA Immobilien Tirol GmbH", "email": "info@renovatirol.at"}, "creator": {"@type": "Organization", "name": "archivisu", "url": "https://www.archivisu.at", "description": "Webdesign, Innsbruck", "address": {"@type": "PostalAddress", "streetAddress": "Maria-Theresien-Straße 18", "postalCode": "6020", "addressLocality": "Innsbruck", "addressCountry": "AT"}}}</script></head>
+<meta name="author" content="archivisu, Innsbruck, www.archivisu.at"><meta name="designer" content="archivisu, Webdesign, Innsbruck"><link rel="author" href="humans.txt"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "RENOVA Immobilien Tirol", "inLanguage": "de-AT", "publisher": {"@type": "Organization", "name": "RENOVA Immobilien Tirol GmbH", "email": "info@renovatirol.at"}, "creator": {"@type": "Organization", "name": "archivisu", "url": "https://www.archivisu.at", "description": "Webdesign, Innsbruck", "address": {"@type": "PostalAddress", "streetAddress": "Maria-Theresien-Straße 18", "postalCode": "6020", "addressLocality": "Innsbruck", "addressCountry": "AT"}}}</script><!-- Statistik: Matomo auf eigenem Server, ohne Cookies -->
+<script>
+var _paq = window._paq = window._paq || [];
+_paq.push(['disableCookies']);
+_paq.push(['setDoNotTrack', true]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function(){
+  var u = '/statistik/';
+  _paq.push(['setTrackerUrl', u + 'matomo.php']); _paq.push(['setSiteId', '1']);
+  var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+  g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+  // Ereignisse für die wichtigsten Kontaktwege
+  window.renovaEvent = function(kat, akt, name){ _paq.push(['trackEvent', kat, akt, name || document.title.split(' | ')[0]]); };
+  d.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]'); if(!a) return;
+    var h = a.getAttribute('href');
+    if(/^tel:/i.test(h)) renovaEvent('Kontakt', 'Anrufen');
+    else if(/^mailto:/i.test(h)) renovaEvent('Kontakt', 'E-Mail');
+    else if(/immobilienscout24\./i.test(h)) renovaEvent('Objekt', 'Zu ImmoScout');
+    else if(/instagram\.com/i.test(h)) renovaEvent('Kontakt', 'Instagram');
+  }, true);
+})();
+</script>
+</head>
 <body>
 <div style="font-family: 'Jost', sans-serif; font-weight: 300; color: #E6E4E0; background: #0C0C0C; width: 100%">
 
