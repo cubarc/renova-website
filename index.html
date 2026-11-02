@@ -54,6 +54,30 @@ footer a{color:#8A8782;text-decoration:none}
 @media (max-width:600px){.card li{font-size:14px}.btn{width:100%;text-align:center}.btns{width:100%}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
+<!-- Statistik: Matomo auf eigenem Server, ohne Cookies -->
+<script>
+var _paq = window._paq = window._paq || [];
+_paq.push(['disableCookies']);
+_paq.push(['setDoNotTrack', true]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function(){
+  var u = '/statistik/';
+  _paq.push(['setTrackerUrl', u + 'matomo.php']); _paq.push(['setSiteId', '1']);
+  var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+  g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+  // Ereignisse für die wichtigsten Kontaktwege
+  window.renovaEvent = function(kat, akt, name){ _paq.push(['trackEvent', kat, akt, name || document.title.split(' | ')[0]]); };
+  d.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]'); if(!a) return;
+    var h = a.getAttribute('href');
+    if(/^tel:/i.test(h)) renovaEvent('Kontakt', 'Anrufen');
+    else if(/^mailto:/i.test(h)) renovaEvent('Kontakt', 'E-Mail');
+    else if(/immobilienscout24\./i.test(h)) renovaEvent('Objekt', 'Zu ImmoScout');
+    else if(/instagram\.com/i.test(h)) renovaEvent('Kontakt', 'Instagram');
+  }, true);
+})();
+</script>
 </head>
 <body>
 <div class="bg" aria-hidden="true"><img src="assets/img/staina-slide-22.jpg" srcset="assets/img/staina-slide-22-960.jpg 960w, assets/img/staina-slide-22.jpg 1920w, assets/img/staina-slide-22-3200.jpg 3200w" sizes="100vw" alt=""></div>
