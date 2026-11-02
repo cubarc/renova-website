@@ -200,7 +200,7 @@ if (PHP_SAPI === 'cli' && getenv('RENOVA_LOKAL')) return;   // lokal nur Funktio
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-Control: no-store');
 date_default_timezone_set('Europe/Vienna');
-$test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro Stunde
+$test = isset($_GET['test']);   // Testversand nur an statistik@ (Weiterleitung an info@cubarc.at), aktueller Monat, höchstens einmal pro 10 Minuten
 if ($test) {
     $testsperre = __DIR__ . '/statistik/tmp/renova-monatsbericht-test-' . date('Y-m-d') . '.gesendet';
     if (is_file($testsperre)) { echo "Test heute schon gesendet\n"; exit; }
