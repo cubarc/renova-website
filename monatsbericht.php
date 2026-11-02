@@ -224,7 +224,7 @@ $api = function (string $methode, array $param) {
 };
 try {
     $d = bericht_daten($api, $monatErster);
-} catch (\Throwable $t) { error_log('RENOVA Monatsbericht Daten: ' . $t->getMessage()); http_response_code(500); echo "Fehler\n"; exit; }
+} catch (\Throwable $t) { error_log('RENOVA Monatsbericht Daten: ' . $t->getMessage()); http_response_code(500); echo "Fehler\n"; if (isset($_GET['pruefen'])) echo get_class($t) . ' ' . mb_substr($t->getMessage(), 0, 300) . ' @' . basename($t->getFile()) . ':' . $t->getLine() . "\n"; exit; }
 if (isset($_GET['pruefen'])) { echo 'Daten ok, ' . count($d['kennzahlen']) . " Kennzahlen, nichts gesendet\n"; exit; }
 if ((int)$d['kennzahlen']['besuche'] === 0) { @file_put_contents($sperre, 'keine Besuche ' . date('c')); echo "keine Daten, nichts gesendet\n"; exit; }
 $fehler = '';
