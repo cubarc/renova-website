@@ -290,6 +290,18 @@ a{color:#E6E4E0}a:hover{color:#F3F2EF}
  .award-grid{grid-template-columns:minmax(0,1fr)!important;gap:48px}
 }
 
+
+article.card.mz{display:none!important}
+article.card.mein{animation:mein .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes mein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.mehr{display:flex;flex-direction:column;align-items:center;gap:14px;margin:64px 0 0}
+.mehr[hidden]{display:none}
+.mehr-btn{display:inline-flex;align-items:center;gap:16px;background:transparent;border:1px solid #0C0C0C;color:#0C0C0C;font:inherit;font-size:12px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;padding:18px 30px 18px 34px;min-height:52px;cursor:pointer;transition:background .35s ease,color .35s ease}
+.mehr-btn:hover,.mehr-btn:focus-visible{background:#0C0C0C;color:#F3F2EF}
+.mehr-btn svg{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.mehr.offen .mehr-btn svg{transform:rotate(180deg)}
+.mehr-info{font-size:13px;color:#6E6C68;letter-spacing:.04em}
+@media (prefers-reduced-motion:reduce){article.card.mein{animation:none}.mehr-btn svg{transition:none}}
 </style>
 <meta name="author" content="archivisu, Innsbruck, www.archivisu.at"><meta name="designer" content="archivisu, Webdesign, Innsbruck"><link rel="author" href="humans.txt"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "RENOVA Immobilien Tirol", "inLanguage": "de-AT", "publisher": {"@type": "Organization", "name": "RENOVA Immobilien Tirol GmbH", "email": "info@renovatirol.at"}, "creator": {"@type": "Organization", "name": "archivisu", "url": "https://www.archivisu.at", "description": "Webdesign, Innsbruck", "address": {"@type": "PostalAddress", "streetAddress": "Maria-Theresien-Straße 18", "postalCode": "6020", "addressLocality": "Innsbruck", "addressCountry": "AT"}}}</script><!-- Statistik: Matomo auf eigenem Server, ohne Cookies -->
 <script>
@@ -470,7 +482,7 @@ _paq.push(['enableLinkTracking']);
 <button class="chip" type="button" data-sort="beliebt" aria-label="Nach Beliebtheit sortieren" aria-pressed="true" data-on="so.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Beliebt<span class="dir"></span></button><button class="chip" type="button" data-sort="preis" aria-label="Nach Preis sortieren, erneut klicken kehrt die Richtung um" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis<span class="dir">↕</span></button><button class="chip" type="button" data-sort="flaeche" aria-label="Nach Wohnfläche sortieren, erneut klicken kehrt die Richtung um" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Fläche<span class="dir">↕</span></button>
 </div>
 <div class="fgrp zgrp" role="group" aria-label="Zimmer"><span class="flab">Zimmer</span><input class="zrange" type="range" min="1" max="4" step="1" value="1" aria-label="Mindestanzahl Zimmer" aria-valuetext="alle"><span class="zval" aria-hidden="true">Alle</span></div>
-<div class="fcount" aria-live="polite">12 Objekte</div>
+<div class="fcount" aria-live="polite">21 Objekte</div>
 </div>
 
 <div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 48px">
@@ -522,33 +534,6 @@ _paq.push(['enableLinkTracking']);
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
 <div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
-<div style="font-size: 11px; color: #6E6C68">Neubau</div>
-</div>
-<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
-</div>
-</a>
-</article>
-
-<article class="card" data-bilder="[[&quot;assets/img/staina-00.jpg?v=d4ad8059&quot;, &quot;Resort Staina, Außenansicht&quot;], [&quot;assets/img/staina-02.jpg?v=7339243e&quot;, &quot;Wohnhaus am Südhang&quot;], [&quot;assets/img/staina-03.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-04.jpg?v=39fb7297&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-05.jpg?v=0fe9fd5d&quot;, &quot;Balkon mit Bergpanorama&quot;], [&quot;assets/img/staina-06.jpg?v=569973cd&quot;, &quot;Schlafzimmer mit Panoramafenster&quot;], [&quot;assets/img/staina-07.jpg?v=ca6c67cb&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-08.jpg?v=3a7ca64d&quot;, &quot;Resort Staina über Steinach&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="430000" data-flaeche="86" data-zimmer="3.5" data-neu="2026-10-17" data-beliebt="3" style="background: #FFFFFF; display: flex; flex-direction: column">
-<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
-<a class="cimglink" href="objekt-staina-pure-living.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-00-960.jpg?v=0d8a43fa 960w, assets/img/staina-00.jpg?v=d4ad8059 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-00.jpg?v=d4ad8059" alt="Resort Staina, Außenansicht" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
-<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
-<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
-<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 8</span>
-</div>
-<a href="objekt-staina-pure-living.html" aria-label="Objekt ansehen: Dachgeschosswohnung · Pure Living, Steinach am Brenner · Tirol, € 430.000" style="display: block; color: inherit; text-decoration: none">
-<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
-<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Dachgeschosswohnung · Pure Living</h3>
-<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Pure Living über dem Tal. Resort Staina, Pure Living.</p>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">86 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">3,5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
-<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 32 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
-</div>
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
-<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">€ 430.000</div>
 <div style="font-size: 11px; color: #6E6C68">Neubau</div>
 </div>
 <div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
@@ -799,8 +784,279 @@ _paq.push(['enableLinkTracking']);
 </a>
 </article>
 
+<article class="card" data-bilder="[[&quot;assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29&quot;, &quot;Wohnbereich mit Kamin und Bergblick&quot;], [&quot;assets/img/staina-n-kueche.jpg?v=e7e0574e&quot;, &quot;Küche mit Kochinsel&quot;], [&quot;assets/img/staina-n-panorama.jpg?v=a8fcd6bd&quot;, &quot;Steinach am Brenner und das Wipptal&quot;], [&quot;assets/img/staina-n-panorama-abend.jpg?v=9517cf13&quot;, &quot;Abendstimmung über Steinach&quot;], [&quot;assets/img/staina-gr-6ae586d9-1.jpg?v=83a39888&quot;, &quot;Grundriss Haus 45 · Top 45.A&quot;], [&quot;assets/img/staina-gr-6ae586d9-2.jpg?v=2c30bc84&quot;, &quot;Grundriss Haus 45 · Top 45.A&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="92" data-zimmer="4" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-45-a.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-n-wohnen-kamin-960.jpg?v=9bb81478 960w, assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29" alt="Wohnbereich mit Kamin und Bergblick" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 6</span>
+</div>
+<a href="objekt-staina-45-a.html" aria-label="Objekt ansehen: Penthouse · Top 45.A, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Penthouse · Top 45.A</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Dem Himmel ein Stück näher. Resort Staina, Haus 45 · Top 45.A.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">92 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">4</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 110 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-n-essen.jpg?v=62e71881&quot;, &quot;Essbereich und Küche mit Talblick&quot;], [&quot;assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29&quot;, &quot;Wohnbereich mit Kamin und Bergblick&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-gr-6ae5aa99-1.jpg?v=c787cd73&quot;, &quot;Grundriss Haus 45 · Top 45.C&quot;], [&quot;assets/img/staina-gr-6ae5aa99-2.jpg?v=8354f7cd&quot;, &quot;Grundriss Haus 45 · Top 45.C&quot;], [&quot;assets/img/staina-gr-6ae5aa99-3.jpg?v=4bb402c9&quot;, &quot;Grundriss Haus 45 · Top 45.C&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="146" data-zimmer="5" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-45-c.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-n-essen-960.jpg?v=fc50bf8e 960w, assets/img/staina-n-essen.jpg?v=62e71881 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-n-essen.jpg?v=62e71881" alt="Essbereich und Küche mit Talblick" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 6</span>
+</div>
+<a href="objekt-staina-45-c.html" aria-label="Objekt ansehen: Maisonette · Top 45.C, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Maisonette · Top 45.C</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Weitblick auf drei Ebenen. Resort Staina, Haus 45 · Top 45.C.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">146 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 65 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-n-skizze-vorne.jpg?v=b57377bf&quot;, &quot;Ansicht, Skizze&quot;], [&quot;assets/img/staina-n-panorama.jpg?v=a8fcd6bd&quot;, &quot;Steinach am Brenner und das Wipptal&quot;], [&quot;assets/img/staina-n-panorama-abend.jpg?v=9517cf13&quot;, &quot;Abendstimmung über Steinach&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-slide-22.jpg?v=0fe9fd5d&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-gr-6ae5a1f6-1.jpg?v=9e8490a9&quot;, &quot;Grundriss Haus 45 · Top 45.D&quot;], [&quot;assets/img/staina-gr-6ae5a1f6-2.jpg?v=1eaa6132&quot;, &quot;Grundriss Haus 45 · Top 45.D&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="95" data-zimmer="3" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-45-d.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-n-skizze-vorne-960.jpg?v=e04c6060 960w, assets/img/staina-n-skizze-vorne.jpg?v=b57377bf 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-n-skizze-vorne.jpg?v=b57377bf" alt="Ansicht, Skizze" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 7</span>
+</div>
+<a href="objekt-staina-45-d.html" aria-label="Objekt ansehen: Maisonette · Top 45.D, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Maisonette · Top 45.D</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Ein kleines Haus im Haus. Resort Staina, Haus 45 · Top 45.D.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">95 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">3</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 47 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-slide-22.jpg?v=0fe9fd5d&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29&quot;, &quot;Wohnbereich mit Kamin und Bergblick&quot;], [&quot;assets/img/staina-n-essen.jpg?v=62e71881&quot;, &quot;Essbereich und Küche mit Talblick&quot;], [&quot;assets/img/staina-slide-schlafzimmer.jpg?v=569973cd&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-gr-6ae60d7a-1.jpg?v=3b03e109&quot;, &quot;Grundriss Doppelhaushälfte mit Dachterrasse&quot;], [&quot;assets/img/staina-gr-6ae60d7a-2.jpg?v=a90b46d9&quot;, &quot;Grundriss Doppelhaushälfte mit Dachterrasse&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="146" data-zimmer="6" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-dhh-dachterrasse.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-slide-22-960.jpg?v=fea7ad3b 960w, assets/img/staina-slide-22.jpg?v=0fe9fd5d 1920w, assets/img/staina-slide-22-3200.jpg?v=64318631 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-slide-22.jpg?v=0fe9fd5d" alt="Terrasse mit Blick ins Tal" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 7</span>
+</div>
+<a href="objekt-staina-dhh-dachterrasse.html" aria-label="Objekt ansehen: Doppelhaushälfte · Dachterrasse, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Doppelhaushälfte · Dachterrasse</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Manche Aussichten verändern alles. Resort Staina, Doppelhaushälfte mit Dachterrasse.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">146 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">6</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 143,6 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-n-skizze-doppel.jpg?v=d624971b&quot;, &quot;Doppelhaus, Skizze&quot;], [&quot;assets/img/staina-n-skizze-vorne.jpg?v=b57377bf&quot;, &quot;Ansicht, Skizze&quot;], [&quot;assets/img/staina-n-skizze-oben.jpg?v=fd94ae74&quot;, &quot;Ansicht von oben, Skizze&quot;], [&quot;assets/img/staina-n-panorama-abend.jpg?v=9517cf13&quot;, &quot;Abendstimmung über Steinach&quot;], [&quot;assets/img/staina-gr-6adbb4fd-1.jpg?v=4f964c87&quot;, &quot;Grundriss Haus 4 · Doppelhaushälfte&quot;], [&quot;assets/img/staina-gr-6adbb4fd-2.jpg?v=7d63fa2b&quot;, &quot;Grundriss Haus 4 · Doppelhaushälfte&quot;], [&quot;assets/img/staina-gr-6adbb4fd-3.jpg?v=6168ca08&quot;, &quot;Grundriss Haus 4 · Doppelhaushälfte&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="146.5" data-zimmer="5" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-haus-4.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-n-skizze-doppel-960.jpg?v=5c2480a9 960w, assets/img/staina-n-skizze-doppel.jpg?v=d624971b 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-n-skizze-doppel.jpg?v=d624971b" alt="Doppelhaus, Skizze" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 7</span>
+</div>
+<a href="objekt-staina-haus-4.html" aria-label="Objekt ansehen: Doppelhaushälfte · Haus 4, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Doppelhaushälfte · Haus 4</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Vielfältige Freiräume. In Panoramalage. Resort Staina, Haus 4 · Doppelhaushälfte.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">146,5 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 59 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-slide-wohnen.jpg?v=ca6c67cb&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-n-skizze-vorne.jpg?v=b57377bf&quot;, &quot;Ansicht, Skizze&quot;], [&quot;assets/img/staina-slide-schlafzimmer.jpg?v=569973cd&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-slide-15.jpg?v=39fb7297&quot;, &quot;Terrasse am Abend&quot;], [&quot;assets/img/staina-slide-22.jpg?v=0fe9fd5d&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-n-panorama-abend.jpg?v=9517cf13&quot;, &quot;Abendstimmung über Steinach&quot;], [&quot;assets/img/staina-gr-6adbb2bf-1.jpg?v=b7609110&quot;, &quot;Grundriss Doppelhaushälfte mit Carport&quot;], [&quot;assets/img/staina-gr-6adbb2bf-2.jpg?v=cc4f67fd&quot;, &quot;Grundriss Doppelhaushälfte mit Carport&quot;], [&quot;assets/img/staina-gr-6adbb2bf-3.jpg?v=ab4d402c&quot;, &quot;Grundriss Doppelhaushälfte mit Carport&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="146" data-zimmer="5" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-dhh-carport.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-slide-wohnen-960.jpg?v=f5d7a10b 960w, assets/img/staina-slide-wohnen.jpg?v=ca6c67cb 1920w, assets/img/staina-slide-wohnen-3200.jpg?v=9e9f1a55 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-slide-wohnen.jpg?v=ca6c67cb" alt="Wohnbereich mit Kamin" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 10</span>
+</div>
+<a href="objekt-staina-dhh-carport.html" aria-label="Objekt ansehen: Doppelhaushälfte · Carport, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Doppelhaushälfte · Carport</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Ein Haus, das mit dem Leben mitdenkt. Resort Staina, Doppelhaushälfte mit Carport.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">146 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 65,7 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-slide-15.jpg?v=39fb7297&quot;, &quot;Terrasse am Abend&quot;], [&quot;assets/img/staina-n-skizze-oben.jpg?v=fd94ae74&quot;, &quot;Ansicht von oben, Skizze&quot;], [&quot;assets/img/staina-n-skizze-vorne.jpg?v=b57377bf&quot;, &quot;Ansicht, Skizze&quot;], [&quot;assets/img/staina-slide-wohnen.jpg?v=ca6c67cb&quot;, &quot;Wohnbereich mit Kamin&quot;], [&quot;assets/img/staina-slide-schlafzimmer.jpg?v=569973cd&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-n-panorama-abend.jpg?v=9517cf13&quot;, &quot;Abendstimmung über Steinach&quot;], [&quot;assets/img/staina-gr-6adbae29-1.jpg?v=3fa6dbdc&quot;, &quot;Grundriss Penthouse mit zwei Terrassen&quot;], [&quot;assets/img/staina-gr-6adbae29-2.jpg?v=4457d355&quot;, &quot;Grundriss Penthouse mit zwei Terrassen&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="95.18" data-zimmer="4" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-penthouse-terrassen.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-slide-15-960.jpg?v=6b99af88 960w, assets/img/staina-slide-15.jpg?v=39fb7297 1920w, assets/img/staina-slide-15-3200.jpg?v=a4b1a7f5 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-slide-15.jpg?v=39fb7297" alt="Terrasse am Abend" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 9</span>
+</div>
+<a href="objekt-staina-penthouse-terrassen.html" aria-label="Objekt ansehen: Penthouse · Zwei Terrassen, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Penthouse · Zwei Terrassen</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Zwei außergewöhnliche Terrassen. Resort Staina, Penthouse mit zwei Terrassen.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">95,18 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">4</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 119 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-00.jpg?v=d4ad8059&quot;, &quot;Resort Staina, Außenansicht&quot;], [&quot;assets/img/staina-02.jpg?v=7339243e&quot;, &quot;Wohnhaus am Südhang&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-slide-15.jpg?v=39fb7297&quot;, &quot;Terrasse am Abend&quot;], [&quot;assets/img/staina-slide-22.jpg?v=0fe9fd5d&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-slide-schlafzimmer.jpg?v=569973cd&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-slide-wohnen.jpg?v=ca6c67cb&quot;, &quot;Wohnbereich mit Kamin&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="116" data-zimmer="4" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-4-zimmer.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-00-960.jpg?v=0d8a43fa 960w, assets/img/staina-00.jpg?v=d4ad8059 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-00.jpg?v=d4ad8059" alt="Resort Staina, Außenansicht" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 7</span>
+</div>
+<a href="objekt-staina-4-zimmer.html" aria-label="Objekt ansehen: 4-Zimmer-Wohnung · 116 m², Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">4-Zimmer-Wohnung · 116 m²</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Platz für alles, was zählt. Resort Staina, 4-Zimmer-Wohnung · 116 m².</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">116 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">4</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 32 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-19.jpg?v=7339243e&quot;, &quot;Haus 06, Ansicht&quot;], [&quot;assets/img/staina-slide-15.jpg?v=39fb7297&quot;, &quot;Terrasse am Abend&quot;], [&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-slide-22.jpg?v=0fe9fd5d&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-slide-schlafzimmer.jpg?v=569973cd&quot;, &quot;Schlafzimmer mit Ausblick&quot;], [&quot;assets/img/staina-slide-wohnen.jpg?v=ca6c67cb&quot;, &quot;Wohnbereich mit Kamin&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="305000" data-flaeche="58" data-zimmer="3" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-06-garten-305.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-19-960.jpg?v=f10b7a61 960w, assets/img/staina-19.jpg?v=7339243e 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-19.jpg?v=7339243e" alt="Haus 06, Ansicht" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 6</span>
+</div>
+<a href="objekt-staina-06-garten-305.html" aria-label="Objekt ansehen: Gartenwohnung · Haus 06, Steinach am Brenner · Tirol, € 305.000" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Gartenwohnung · Haus 06</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Verkaufsstart im Resort Staina. Resort Staina, Haus 06 · Gartenwohnung.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">58 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">3</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 69 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">€ 305.000</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-slide-strasse.jpg?v=abcfd3e6&quot;, &quot;Zufahrt mit Allee&quot;], [&quot;assets/img/staina-n-panorama.jpg?v=a8fcd6bd&quot;, &quot;Steinach am Brenner und das Wipptal&quot;], [&quot;assets/img/staina-n-panorama-abend.jpg?v=9517cf13&quot;, &quot;Abendstimmung über Steinach&quot;], [&quot;assets/img/staina-gr-6ae59bb5-1.jpg?v=747bbf15&quot;, &quot;Grundriss 2-Zimmer-Wohnung · 1. OG&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="57" data-zimmer="2" data-neu="2026-11-03" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-2-zimmer-1og.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-slide-strasse-960.jpg?v=2f5350be 960w, assets/img/staina-slide-strasse.jpg?v=abcfd3e6 1920w, assets/img/staina-slide-strasse-3200.jpg?v=d332dac8 3200w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-slide-strasse.jpg?v=abcfd3e6" alt="Zufahrt mit Allee" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 4</span>
+</div>
+<a href="objekt-staina-2-zimmer-1og.html" aria-label="Objekt ansehen: 2-Zimmer-Wohnung · 1. OG, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">2-Zimmer-Wohnung · 1. OG</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Weniger Räume. Mehr Raumgefühl. Resort Staina, 2-Zimmer-Wohnung · 1. OG.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">57 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">2</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 10 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
 </div>
 
+<div class="mehr" hidden><button type="button" class="mehr-btn" aria-expanded="false"><span class="mehr-txt">Weitere Immobilien ansehen</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 5 L7 10 L12 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button><span class="mehr-info" aria-live="polite"></span></div>
 <div class="sc-if empty" hidden>
 <p style="margin: 0; padding: 60px 0; text-align: center; font-size: 15px; color: #6E6C68">Derzeit keine Objekte in dieser Kategorie. Gerne informieren wir Sie, sobald ein passendes Objekt verfügbar ist.</p>
 </div>
@@ -1161,6 +1417,7 @@ function setImg(img, src){
     var zv = document.querySelector('.zval'), zr = document.querySelector('.zrange'); if(zv){ var t = st.zmin <= 1 ? 'Alle' : 'ab ' + st.zmin; zv.textContent = t; zr.setAttribute('aria-valuetext', st.zmin <= 1 ? 'alle' : 'ab ' + st.zmin + ' Zimmer'); }
     var cnt = document.querySelector('.fcount'); if(cnt) cnt.textContent = n + (n === 1 ? ' Objekt' : ' Objekte');
     var e = document.querySelector('.sc-if.empty'); if(e) e.hidden = n > 0;
+    if(window.rnvMehr) window.rnvMehr(false);
   }
   tabs.forEach(function(b){ b.addEventListener('click', function(){ st.kat = map[b.textContent.trim()]; apply(); }); });
   document.querySelectorAll('[data-on="s.pick"]').forEach(function(b){ b.addEventListener('click', function(){ st.standort = b.dataset.key; apply(); }); });
@@ -1186,6 +1443,34 @@ function setImg(img, src){
   document.addEventListener('keydown', function(e){ if(!lb.classList.contains('open')) return; if(e.key === 'Escape') close(); if(e.key === 'ArrowLeft') show(i - 1); if(e.key === 'ArrowRight') show(i + 1); });
   lb.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', function(e){ if(x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if(Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+})();
+
+(function(){
+  var N = 6, offen = false;
+  var box = document.querySelector('.mehr'); if(!box) return;
+  var btn = box.querySelector('.mehr-btn'), txt = box.querySelector('.mehr-txt'), info = box.querySelector('.mehr-info');
+  function sichtbar(){ return Array.prototype.slice.call(document.querySelectorAll('article.card')).filter(function(c){ return !c.hidden; }); }
+  window.rnvMehr = function(neu){
+    var v = sichtbar(), rest = Math.max(0, v.length - N);
+    v.forEach(function(c, k){
+      var weg = !offen && k >= N;
+      c.classList.toggle('mz', weg);
+      c.classList.remove('mein');
+      if(neu && offen && k >= N){ c.style.animationDelay = Math.min(k - N, 8) * 70 + 'ms'; void c.offsetWidth; c.classList.add('mein'); }
+    });
+    document.querySelectorAll('article.card[hidden]').forEach(function(c){ c.classList.remove('mz'); });
+    box.hidden = rest === 0;
+    box.classList.toggle('offen', offen);
+    btn.setAttribute('aria-expanded', offen);
+    txt.textContent = offen ? 'Weniger anzeigen' : 'Weitere Immobilien ansehen';
+    info.textContent = offen ? 'Alle ' + v.length + ' Objekte' : N + ' von ' + v.length + ' Objekten';
+  };
+  btn.addEventListener('click', function(){
+    offen = !offen; window.rnvMehr(true);
+    if(offen){ if(window.renovaEvent) renovaEvent('Immobilien', 'Weitere angezeigt'); var c = sichtbar()[N]; if(c){ var a = c.querySelector('a'); if(a) a.focus({ preventScroll: true }); } }
+    else if(window.rnvScrollTo) window.rnvScrollTo('immobilien'); else document.getElementById('immobilien').scrollIntoView({ behavior: 'smooth' });
+  });
+  window.rnvMehr(false);
 })();
 </script>
 </body>
