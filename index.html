@@ -73,7 +73,7 @@ _paq.push(['enableLinkTracking']);
     var h = a.getAttribute('href');
     if(/^tel:/i.test(h)) renovaEvent('Kontakt', 'Anrufen');
     else if(/^mailto:/i.test(h)) renovaEvent('Kontakt', 'E-Mail');
-    else if(/immobilienscout24\./i.test(h)) renovaEvent('Objekt', 'Zu ImmoScout');
+    else if(/immobilienscout24\.|^\/immoscout\//i.test(h)) renovaEvent('Objekt', 'Zu ImmoScout');
     else if(/instagram\.com/i.test(h)) renovaEvent('Kontakt', 'Instagram');
   }, true);
 })();
