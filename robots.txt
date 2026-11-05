@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /statistik/
+Disallow: /immoscout/
+
+Sitemap: https://www.renovatirol.at/sitemap.xml
