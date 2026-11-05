@@ -1,6 +1,0 @@
-RENOVA Mailsignatur Stefan Kern (MacBook + iPhone)
-Stand 05.11.2026
-
-Diese Seite muss online unter https://www.renovatirol.at/signatur/stefan-kern.html liegen,
-samt den PNG-Dateien daneben. Die Anleitung liegt in
-CI\03_Geschaeftsausstattung\03_Mailsignaturen\Mac_iPhone\.
