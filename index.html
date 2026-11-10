@@ -322,7 +322,7 @@ _paq.push(['enableLinkTracking']);
     var h = a.getAttribute('href');
     if(/^tel:/i.test(h)) renovaEvent('Kontakt', 'Anrufen');
     else if(/^mailto:/i.test(h)) renovaEvent('Kontakt', 'E-Mail');
-    else if(/immobilienscout24\./i.test(h)) renovaEvent('Objekt', 'Zu ImmoScout');
+    else if(/immobilienscout24\.|^\/immoscout\//i.test(h)) renovaEvent('Objekt', 'Zu ImmoScout');
     else if(/instagram\.com/i.test(h)) renovaEvent('Kontakt', 'Instagram');
   }, true);
 })();
@@ -482,7 +482,7 @@ _paq.push(['enableLinkTracking']);
 <button class="chip" type="button" data-sort="beliebt" aria-label="Nach Beliebtheit sortieren" aria-pressed="true" data-on="so.pick" style="border: 1px solid #0C0C0C; background: #0C0C0C; color: #F3F2EF; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Beliebt<span class="dir"></span></button><button class="chip" type="button" data-sort="preis" aria-label="Nach Preis sortieren, erneut klicken kehrt die Richtung um" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Preis<span class="dir">↕</span></button><button class="chip" type="button" data-sort="flaeche" aria-label="Nach Wohnfläche sortieren, erneut klicken kehrt die Richtung um" aria-pressed="false" data-on="so.pick" style="border: 1px solid #C9C6C0; background: transparent; color: #4A4946; padding: 9px 13px 9px 16px; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 38px; cursor: pointer">Fläche<span class="dir">↕</span></button>
 </div>
 <div class="fgrp zgrp" role="group" aria-label="Zimmer"><span class="flab">Zimmer</span><input class="zrange" type="range" min="1" max="4" step="1" value="1" aria-label="Mindestanzahl Zimmer" aria-valuetext="alle"><span class="zval" aria-hidden="true">Alle</span></div>
-<div class="fcount" aria-live="polite">21 Objekte</div>
+<div class="fcount" aria-live="polite">23 Objekte</div>
 </div>
 
 <div class="grid2 reveal" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 48px">
@@ -1044,6 +1044,60 @@ _paq.push(['enableLinkTracking']);
 <div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">57 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
 <div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">2</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
 <div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 10 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-n-ansicht-dach.jpg?v=660696ee&quot;, &quot;Ansicht mit Dachebene&quot;], [&quot;assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29&quot;, &quot;Wohnbereich mit Kamin und Bergblick&quot;], [&quot;assets/img/staina-n-kueche.jpg?v=e7e0574e&quot;, &quot;Küche mit Kochinsel&quot;], [&quot;assets/img/staina-n-essen.jpg?v=62e71881&quot;, &quot;Essbereich und Küche mit Talblick&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="147" data-zimmer="5" data-neu="2026-11-09" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-penthouse-erweiterbar.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-n-ansicht-dach-960.jpg?v=290a1f9b 960w, assets/img/staina-n-ansicht-dach.jpg?v=660696ee 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-n-ansicht-dach.jpg?v=660696ee" alt="Ansicht mit Dachebene" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 4</span>
+</div>
+<a href="objekt-staina-penthouse-erweiterbar.html" aria-label="Objekt ansehen: Penthouse · Erweiterbar, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Penthouse · Erweiterbar</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Die Freiheit eines Hauses. Der Komfort eines Penthouses. Resort Staina, Penthouse, erweiterbar.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">147 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">5</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 70 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
+<div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
+<div style="font-size: 11px; color: #6E6C68">Neubau</div>
+</div>
+<div style="margin-top: 6px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; color: #262626; display: flex; align-items: center; gap: 12px">Objekt ansehen<span style="display: block; width: 28px; height: 1px; background: #262626"></span></div>
+</div>
+</a>
+</article>
+
+<article class="card" data-bilder="[[&quot;assets/img/staina-n-ansicht-dach.jpg?v=660696ee&quot;, &quot;Ansicht mit Dachgarten&quot;], [&quot;assets/img/staina-n-essen.jpg?v=62e71881&quot;, &quot;Essbereich und Küche mit Talblick&quot;], [&quot;assets/img/staina-n-wohnen-kamin.jpg?v=236bdc29&quot;, &quot;Wohnbereich mit Kamin und Bergblick&quot;], [&quot;assets/img/staina-slide-22.jpg?v=0fe9fd5d&quot;, &quot;Terrasse mit Blick ins Tal&quot;], [&quot;assets/img/staina-slide-23.jpg?v=b214543e&quot;, &quot;Wohnbereich mit Hängekamin&quot;], [&quot;assets/img/staina-gr-6ae586d9-2.jpg?v=2c30bc84&quot;, &quot;Grundriss Penthouse mit Dachgarten&quot;], [&quot;assets/img/staina-gr-6ae586d9-1.jpg?v=83a39888&quot;, &quot;Grundriss Penthouse mit Dachgarten&quot;]]" data-kat="kauf" data-standort="steinach" data-preis="0" data-flaeche="145" data-zimmer="6" data-neu="2026-11-09" data-beliebt="99" style="background: #FFFFFF; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #E6E4E0">
+<a class="cimglink" href="objekt-staina-penthouse-dachgarten.html" tabindex="-1" aria-hidden="true" style="position: absolute; inset: 0; display: block; cursor: pointer"><img srcset="assets/img/staina-n-ansicht-dach-960.jpg?v=290a1f9b 960w, assets/img/staina-n-ansicht-dach.jpg?v=660696ee 1920w" sizes="(max-width: 900px) 100vw, 600px" class="rf cimg" src="assets/img/staina-n-ansicht-dach.jpg?v=660696ee" alt="Ansicht mit Dachgarten" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+<span style="position: absolute; top: 18px; left: 18px; background: rgba(12,12,12,0.78); color: #F3F2EF; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 400; padding: 8px 12px 8px 14px">Bezug 2028</span>
+<button class="galbtn" type="button" aria-label="Vorheriges Bild" data-on="o.prev" style="left: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<button class="galbtn" type="button" aria-label="Nächstes Bild" data-on="o.next" style="right: 16px"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3 L11 8 L6 13" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg></button>
+<span class="cnt" style="position: absolute; right: 18px; bottom: 16px; color: #F3F2EF; font-size: 11px; letter-spacing: 0.24em; background: rgba(12,12,12,0.55); padding: 6px 10px">1 / 7</span>
+</div>
+<a href="objekt-staina-penthouse-dachgarten.html" aria-label="Objekt ansehen: Penthouse · Dachgarten, Steinach am Brenner · Tirol, Preis auf Anfrage" style="display: block; color: inherit; text-decoration: none">
+<div style="padding: 30px 32px 32px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #6E6C68; font-weight: 400">Steinach am Brenner · Tirol</div>
+<h3 style="margin: 0; font-size: 28px; font-weight: 200; line-height: 1.2; color: #0C0C0C">Penthouse · Dachgarten</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.75; color: #4A4946">Mehr Raum unter freiem Himmel. Resort Staina, Penthouse mit Dachgarten.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px solid #E6E4E0; border-bottom: 1px solid #E6E4E0; padding: 16px 0; margin-top: 6px">
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">145 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Wohnfläche</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">6</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Zimmer</div></div>
+<div><div style="font-size: 17px; font-weight: 300; color: #0C0C0C">ca. 70 m²</div><div style="margin-top: 4px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E6C68">Freifläche</div></div>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px">
 <div style="font-size: 22px; font-weight: 300; color: #0C0C0C">Preis auf Anfrage</div>
